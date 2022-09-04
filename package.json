@@ -22,6 +22,7 @@
 		"@storybook/manager-webpack5": "^6.5.10",
 		"@storybook/react": "^6.5.10",
 		"@storybook/testing-library": "^0.0.13",
+		"jest-environment-jsdom": "^29.0.2",
 		"next": "12.2.5",
 		"react": "18.2.0",
 		"react-dom": "18.2.0"
