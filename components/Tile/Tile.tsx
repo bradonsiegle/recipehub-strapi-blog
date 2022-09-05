@@ -5,6 +5,7 @@ import { boxShadow, borderRadius } from '@/components/styles';
 
 interface TileProps {
 	children?: React.ReactNode;
+	/**Header String */
 	header: string;
 }
 

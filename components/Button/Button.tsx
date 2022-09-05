@@ -7,8 +7,11 @@ import { boxShadow, transition, borderRadius } from '@/components/styles';
 export type Color = 'primary' | 'secondary' | 'danger' | 'warning';
 
 export type Props = {
+	/** Button text */
 	children: string;
+	/** Button color */
 	color?: 'primary' | 'secondary' | 'danger' | 'warning';
+	/** Click handler */
 	onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
