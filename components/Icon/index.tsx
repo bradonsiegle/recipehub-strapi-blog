@@ -1,15 +1,32 @@
 import { FC } from 'react';
 import { Icons } from './icons';
+import styled from '@emotion/styled';
 
 export type AvaliableIcons = keyof typeof Icons;
 
-export type Props = {
-	name: AvaliableIcons;
+type WrapperProps = {
+	/** Width and Height of icon */
 	size: string;
-} & React.SVGProps<SVGSVGElement>;
+};
+
+export type Props = {
+	/** Icon name*/
+	name: AvaliableIcons;
+} & WrapperProps &
+	React.SVGProps<SVGSVGElement>;
+
+const Wrapper = styled.div<WrapperProps>`
+	color: ${({ theme }) => theme.font.regular};
+	width: ${({ size }) => size};
+	height: ${({ size }) => size};
+`;
 
 export const Icon: FC<Props> = ({ name, size = '2rem', ...rest }) => {
 	const Icon = Icons[name];
 	const sizes = { width: size, height: size };
-	return <Icon {...sizes} {...rest} />;
+	return (
+		<Wrapper size={size}>
+			<Icon {...sizes} {...rest} />
+		</Wrapper>
+	);
 };
