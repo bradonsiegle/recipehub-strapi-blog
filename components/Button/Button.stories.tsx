@@ -22,3 +22,24 @@ export const PrimaryButton: ComponentStoryObj<typeof Button> = {
 		color: 'primary',
 	},
 };
+
+export const SecondaryButton: ComponentStoryObj<typeof Button> = {
+	...PrimaryButton,
+	args: {
+		color: 'secondary',
+	},
+};
+
+export const WarningButton: ComponentStoryObj<typeof Button> = {
+	...PrimaryButton,
+	args: {
+		color: 'warning',
+	},
+};
+
+export const DangerButton: ComponentStoryObj<typeof Button> = {
+	...PrimaryButton,
+	args: {
+		color: 'danger',
+	},
+};
