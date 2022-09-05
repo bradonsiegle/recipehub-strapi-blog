@@ -6,7 +6,7 @@ import { screen, userEvent } from '@storybook/testing-library';
 import { Button } from './Button';
 
 export default {
-	title: 'Components/Button',
+	title: 'Controls/Button',
 	component: Button,
 	args: {
 		children: 'Button',
