@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { Icons } from './icons';
+import { Icons } from './Icons';
 import styled from '@emotion/styled';
 
 export type AvaliableIcons = keyof typeof Icons;
 
 type WrapperProps = {
 	/** Width and Height of icon */
-	size: string;
+	size?: string;
 };
 
 export type Props = {

@@ -1,0 +1,1 @@
+import { Icon } from './Icon';
