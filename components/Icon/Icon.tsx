@@ -18,5 +18,5 @@ export const Icon: FC<Props> = ({ name, size = 2, ...rest }) => {
 	`;
 	const sizeInRem = `${size}rem`;
 	const sizes = { width: sizeInRem, height: sizeInRem };
-	return <Icon {...sizes} {...rest} />;
+	return <Icon role='img' aria-label={name} {...sizes} {...rest} />;
 };

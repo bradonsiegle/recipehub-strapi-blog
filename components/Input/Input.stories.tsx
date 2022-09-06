@@ -3,6 +3,7 @@ import { expect } from '@storybook/jest';
 import { screen, userEvent } from '@storybook/testing-library';
 
 import { Input } from './Input';
+import { Feedback } from './Feedback';
 
 export default {
 	title: 'Controls/Input',
@@ -21,4 +22,37 @@ export const PrimaryInput: ComponentStoryObj<typeof Input> = {
 	args: {
 		feedback: 'Feedback',
 	},
+};
+
+export const WithValidFeedback: ComponentStoryObj<typeof Input> = {
+	args: {
+		feedback: <Feedback isValid={true}>Looks good!</Feedback>,
+	},
+	argTypes: {
+		feedback: {
+			control: false,
+		},
+	},
+};
+
+export const WithInvalidFeedback: ComponentStoryObj<typeof Input> = {
+	args: {
+		feedback: <Feedback isValid={false}>Required!</Feedback>,
+	},
+	argTypes: {
+		feedback: {
+			control: false,
+		},
+	},
+};
+
+export const WithIcon: ComponentStoryObj<typeof Input> = {
+	args: {
+		icon: 'Search',
+	},
+	// argTypes: {
+	// 	icon: {
+	// 		control: false,
+	// 	},
+	// },
 };
