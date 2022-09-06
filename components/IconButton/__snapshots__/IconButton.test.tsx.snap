@@ -4,6 +4,7 @@ exports[`IconButton test cases Should render 1`] = `
 <DocumentFragment>
   <button
     class="css-9bqdgr"
+    title="Home"
   >
     <div
       class="css-1mqx73m"
