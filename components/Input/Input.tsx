@@ -6,8 +6,8 @@ import { boxShadow } from '../styles';
 
 const StyledInput = styled.input`
 	all: unset;
-	width: ${({ width }) => width}rem;
-	height: ${({ height }) => height}rem;
+	width: 100%;
+	height: 100%;
 	border-radius: 1rem;
 	font-size: 1.4rem;
 	padding: 0 3.2rem 0 1.4rem;
@@ -30,23 +30,36 @@ const StyledInput = styled.input`
 	}
 `;
 
-const Label = styled.label`
+type LabelProps = {
+	/**Input height */
+	height?: number;
+	/**Input width */
+	width?: number;
+};
+
+const Label = styled.label<LabelProps>`
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
+	width: ${({ width }) => width}rem;
+	height: ${({ height }) => height}rem;
 	color: ${({ theme }) => theme.font.regular};
 	font-size: 1rem;
 `;
 
 const StyledIcon = styled(Icon)`
-	margin-left: -3rem;
+	position: absolute;
+	right: 1rem;
 	color: ${({ theme }) => theme.font.placeholder};
 	opacity: 0.7;
 `;
 
 const InputWrapper = styled.div`
 	display: flex;
+	position: relative;
 	align-items: center;
+	width: 100%;
+	height: 100%;
 `;
 
 const Text = styled.span`
@@ -64,25 +77,22 @@ export type Props = {
 	icon?: AvailableIcons;
 	/**Feedback for input */
 	feedback?: ReactChild;
-	/**Input height */
-	height?: string;
-	/**Input width */
-	width?: string;
-};
+} & LabelProps;
 
 export const Input: FC<Props & InputHTMLAttributes<HTMLInputElement>> = ({
 	label,
-	height = 4,
+	height = 7,
 	width = 20,
 	icon,
 	feedback,
+	className,
 	...props
 }) => {
 	return (
-		<Label>
+		<Label height={height} width={width} className={className}>
 			{label && <Text>{label}</Text>}
 			<InputWrapper>
-				<StyledInput height={height} width={width} {...props} />
+				<StyledInput {...props} />
 				{icon && <StyledIcon name={icon} />}
 			</InputWrapper>
 			{feedback && <Text>{feedback}</Text>}

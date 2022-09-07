@@ -58,6 +58,8 @@ const MainNav = styled.nav`
 
 const SearchInput = styled(Input)`
 	grid-area: search;
+	width: 100%;
+	height: 4rem;
 `;
 
 const Content = styled.main`
