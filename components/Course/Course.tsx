@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 
 import { boxShadow, borderRadius } from '../styles';
+import { StyledLink } from '@/components/StyledLink';
 
 const Section = styled.section`
 	display: flex;
@@ -21,12 +22,7 @@ const Section = styled.section`
 	}
 `;
 
-const CourseLink = styled.a`
-	all: unset;
-	cursor: pointer;
-	&:hover {
-		opacity: 0.9;
-	}
+const CourseLink = styled(StyledLink)`
 	padding: 1vmin 4vmin;
 `;
 
