@@ -35,10 +35,35 @@ const Wrapper = styled.div`
 			flex-direction: row;
 		}
 	}
+	@media (min-width: 700px) {
+		grid-template-columns: 1fr 4fr 2fr;
+		grid-template-areas:
+			'header  search  nav'
+			'content content content'
+			'footer  footer  footer';
+		nav {
+			justify-content: space-around;
+			flex-direction: row;
+		}
+	}
 `;
 
 const StyledLogo = styled(Logo)`
 	grid-area: header;
+	display: flex;
+	align-items: center;
+	height: 4rem;
+	@media (max-width: 500px) {
+		justify-content: center;
+	}
+`;
+
+const LogoLink = styled.a`
+	all: unset;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.9;
+	}
 `;
 
 const MainNav = styled.nav`
@@ -68,12 +93,21 @@ const Content = styled.main`
 
 const Footer = styled.footer`
 	grid-area: footer;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	height: 5rem;
 `;
 
 export const Layout: FC<Props> = ({ children }) => {
 	return (
 		<Wrapper>
-			<StyledLogo size={3}>C8X</StyledLogo>
+			<Link href='/' passHref>
+				<LogoLink>
+					<StyledLogo size={3}>C8X</StyledLogo>
+				</LogoLink>
+			</Link>
 			<MainNav>
 				<Link href='/all'>All</Link>
 				<Link href='/news'>News</Link>
