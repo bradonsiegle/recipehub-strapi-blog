@@ -6,10 +6,6 @@ import { Logo } from '@/components/Logo';
 import { Input } from '@/components/Input';
 import { IconButton } from '@/components/IconButton';
 
-interface Props {
-	children?: React.ReactNode;
-}
-
 const Wrapper = styled.div`
 	display: grid;
 	gap: 0.1rem;
@@ -100,7 +96,13 @@ const Footer = styled.footer`
 	height: 5rem;
 `;
 
-export const Layout: FC<Props> = ({ children }) => {
+interface Props {
+	children?: React.ReactNode;
+	isDark: boolean;
+	onThemeToggle: () => void;
+}
+
+export const Layout: FC<Props> = ({ children, isDark, onThemeToggle }) => {
 	return (
 		<Wrapper>
 			<Link href='/' passHref>
@@ -111,7 +113,11 @@ export const Layout: FC<Props> = ({ children }) => {
 			<MainNav>
 				<Link href='/all'>All</Link>
 				<Link href='/news'>News</Link>
-				<IconButton name='Moon' size={1} onClick={() => null} />
+				<IconButton
+					name={isDark ? 'Moon' : 'Sun'}
+					size={1}
+					onClick={onThemeToggle}
+				/>
 			</MainNav>
 			<SearchInput icon='Search' placeholder='Search' onChange={() => null} />
 			<Content>{children}</Content>
