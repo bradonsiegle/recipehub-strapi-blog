@@ -1,27 +1,27 @@
-import userEvent from '@testing-library/user-event';
+import userEvent from "@testing-library/user-event";
 
-import { render, screen } from '@/test-utils';
+import { render, screen } from "@/test-utils";
 
-import { Switch } from './Switch';
+import { Switch } from "./Switch";
 
-describe('Switch test cases', () => {
-	it('Render check', () => {
-		const onChange = jest.fn();
-		jest.spyOn(Math, 'random').mockReturnValue(0.999999999);
+describe("Switch test cases", () => {
+  it("Render check", () => {
+    const onChange = jest.fn();
+    jest.spyOn(Math, "random").mockReturnValue(0.999999999);
 
-		const { asFragment } = render(<Switch onChange={onChange} />);
+    const { asFragment } = render(<Switch onChange={onChange} />);
 
-		expect(asFragment()).toMatchSnapshot();
-	});
-	it('Check onChange callback', () => {
-		const onChange = jest.fn();
+    expect(asFragment()).toMatchSnapshot();
+  });
+  it("Check onChange callback", () => {
+    const onChange = jest.fn();
 
-		render(<Switch onChange={onChange} />);
+    render(<Switch onChange={onChange} />);
 
-		const element = screen.getByTestId('SwitchVisiblePart');
+    const element = screen.getByTestId("SwitchVisiblePart");
 
-		userEvent.click(element);
+    userEvent.click(element);
 
-		expect(onChange).toHaveBeenCalled();
-	});
+    expect(onChange).toHaveBeenCalled();
+  });
 });

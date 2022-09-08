@@ -1,16 +1,16 @@
-import { ComponentStoryObj, ComponentMeta } from '@storybook/react';
-import { expect } from '@storybook/jest';
-import { screen, userEvent } from '@storybook/testing-library';
+import { ComponentStoryObj, ComponentMeta } from "@storybook/react";
+import { expect } from "@storybook/jest";
+import { screen, userEvent } from "@storybook/testing-library";
 
-import { Checkbox } from './Checkbox';
+import { Checkbox } from "./Checkbox";
 
 export default {
-	title: 'Controls/Checkbox',
-	component: Checkbox,
+  title: "Controls/Checkbox",
+  component: Checkbox,
 } as ComponentMeta<typeof Checkbox>;
 
 export const BasicCheckbox: ComponentStoryObj<typeof Checkbox> = {
-	play: async ({ args }) => {
-		await userEvent.click(screen.getByText('✔'));
-	},
+  play: async ({ args }) => {
+    await userEvent.click(screen.getByText("✔"));
+  },
 };
