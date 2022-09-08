@@ -35,6 +35,10 @@ const Wrapper = styled.div`
 	}
 `;
 
+const LogoLink = styled(StyledLink)`
+	padding-right: 1vw;
+`;
+
 const StyledLogo = styled(Logo)`
 	grid-area: header;
 	display: flex;
@@ -59,7 +63,7 @@ const MainNav = styled.nav`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	padding: 0.5rem;
+	margin: 0 2vmin;
 	a {
 		cursor: pointer;
 		color: ${({ theme }) => theme.font.regular};
@@ -98,12 +102,12 @@ export const Layout: FC<Props> = ({ children, isDark, onThemeToggle }) => {
 	return (
 		<Wrapper>
 			<Link href='/' passHref>
-				<StyledLink>
+				<LogoLink>
 					<StyledLogo size={3}>
 						<span className='logo_short'>CBOX</span>
 						<span className='logo_long'>CoursesBox</span>
 					</StyledLogo>
-				</StyledLink>
+				</LogoLink>
 			</Link>
 			<MainNav>
 				<Link href='/all'>All</Link>

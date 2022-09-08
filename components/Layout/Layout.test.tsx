@@ -11,7 +11,11 @@ describe('Layout test cases', () => {
 	);
 
 	it('should render the layout', () => {
-		const { container } = render(<Layout>{child}</Layout>);
+		const { container } = render(
+			<Layout isDark onThemeToggle={() => undefined}>
+				{child}
+			</Layout>
+		);
 		expect(container).toMatchSnapshot();
 	});
 });
