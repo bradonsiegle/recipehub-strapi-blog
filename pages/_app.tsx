@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<ThemeProvider theme={theme}>
 			<Layout isDark={isDark} onThemeToggle={toggleDarkMode}>
-				<Component {...pageProps} />;
+				<Component {...pageProps} />
 			</Layout>
 		</ThemeProvider>
 	);
