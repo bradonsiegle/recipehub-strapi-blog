@@ -13,35 +13,25 @@ const Wrapper = styled.div`
 	color: ${({ theme }) => theme.font.regular};
 	background-color: ${({ theme }) => theme.background};
 	padding: 0.5rem;
-
 	grid-template-areas:
-		'header'
-		'nav'
-		'search'
-		'content'
-		'footer';
+		'header  nav'
+		'search  search'
+		'content content'
+		'footer  footer';
+	nav {
+		flex-direction: row;
+		justify-content: flex-end;
+		gap: 5vmin;
+	}
 	@media (min-width: 500px) {
 		grid-template-columns: 1fr 3fr;
-		grid-template-areas:
-			'header  search'
-			'nav     nav'
-			'content content'
-			'footer  footer';
-		nav {
-			justify-content: space-between;
-			flex-direction: row;
-		}
 	}
-	@media (min-width: 700px) {
+	@media (min-width: 960px) {
 		grid-template-columns: 1fr 4fr 2fr;
 		grid-template-areas:
 			'header  search  nav'
 			'content content content'
 			'footer  footer  footer';
-		nav {
-			justify-content: space-around;
-			flex-direction: row;
-		}
 	}
 `;
 
@@ -50,8 +40,17 @@ const StyledLogo = styled(Logo)`
 	display: flex;
 	align-items: center;
 	height: 4rem;
-	@media (max-width: 500px) {
-		justify-content: center;
+	justify-content: flex-start;
+	& .logo_long {
+		display: none;
+	}
+	@media (min-width: 560px) {
+		& .logo_long {
+			display: inline;
+		}
+		& .logo_short {
+			display: none;
+		}
 	}
 `;
 
@@ -100,7 +99,10 @@ export const Layout: FC<Props> = ({ children, isDark, onThemeToggle }) => {
 		<Wrapper>
 			<Link href='/' passHref>
 				<StyledLink>
-					<StyledLogo size={3}>C8X</StyledLogo>
+					<StyledLogo size={3}>
+						<span className='logo_short'>CBOX</span>
+						<span className='logo_long'>CoursesBox</span>
+					</StyledLogo>
 				</StyledLink>
 			</Link>
 			<MainNav>
