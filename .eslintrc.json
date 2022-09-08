@@ -6,6 +6,7 @@
 	],
 	"plugins": ["prettier"],
 	"rules": {
+		"react/no-unknown-property": "off",
 		"prettier/prettier": [
 			"error",
 			{
