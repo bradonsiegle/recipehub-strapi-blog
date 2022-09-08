@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { Icons } from './Icons';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
 export type AvailableIcons = keyof typeof Icons;
 
