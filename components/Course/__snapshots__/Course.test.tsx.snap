@@ -3,10 +3,10 @@
 exports[`Course test cases Course render check 1`] = `
 <DocumentFragment>
   <section
-    class="css-1glarb2"
+    class="css-1d06jht"
   >
     <a
-      class="css-1975fwo"
+      class="css-1qm6sqv"
       href="/hands-on-reactjs"
     >
       <h2>

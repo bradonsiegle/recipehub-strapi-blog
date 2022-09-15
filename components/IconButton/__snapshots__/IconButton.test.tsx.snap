@@ -3,12 +3,12 @@
 exports[`IconButton test cases Should render 1`] = `
 <DocumentFragment>
   <button
-    class="css-9bqdgr"
+    class="css-o75yi9"
     title="Home"
   >
     <svg
       aria-label="Home"
-      class="css-hxs6wy"
+      class="css-z3g3v6"
       fill="currentColor"
       height="2rem"
       role="img"

@@ -3,14 +3,14 @@
 exports[`Layout test cases should render the layout 1`] = `
 <div>
   <div
-    class="css-18a8r63"
+    class="css-u0jlnf"
   >
     <a
-      class="css-1izxyi6"
+      class="css-4w3zwj"
       href="/"
     >
       <header
-        class="css-1g57su3"
+        class="css-kw51db"
         size="3"
       >
         <span
@@ -26,25 +26,27 @@ exports[`Layout test cases should render the layout 1`] = `
       </header>
     </a>
     <nav
-      class="css-x4n9s7"
+      class="css-1sstk05"
     >
       <a
+        class="css-1sdexyg"
         href="/all"
       >
         All
       </a>
       <a
+        class="css-1sdexyg"
         href="/news"
       >
         News
       </a>
       <button
-        class="css-25hrr4"
+        class="css-dujfmn"
         title="Moon"
       >
         <svg
           aria-label="Moon"
-          class="css-hxs6wy"
+          class="css-z3g3v6"
           fill="currentColor"
           height="1rem"
           role="img"
@@ -62,21 +64,21 @@ exports[`Layout test cases should render the layout 1`] = `
       </button>
     </nav>
     <label
-      class="css-1ikem8n"
+      class="css-t7s8kj"
       height="7"
       width="20"
     >
       <div
-        class="css-1igl99e"
+        class="css-1v67xy3"
       >
         <input
-          class="css-13slppn"
+          class="css-13914rr"
           placeholder="Search"
         />
         <svg
           aria-hidden="true"
           aria-label="Search"
-          class="css-7drimr"
+          class="css-1oer7xp"
           data-icon="search"
           fill="currentColor"
           focusable="false"
@@ -92,7 +94,7 @@ exports[`Layout test cases should render the layout 1`] = `
       </div>
     </label>
     <main
-      class="css-6z89iq"
+      class="css-1qc1fvq"
     >
       <h1>
         Main Article
@@ -102,7 +104,7 @@ exports[`Layout test cases should render the layout 1`] = `
       </p>
     </main>
     <footer
-      class="css-1wymfr2"
+      class="css-1y0dtms"
     >
       <p>
         © 2022 Bradon Siegle. All rights reserved.

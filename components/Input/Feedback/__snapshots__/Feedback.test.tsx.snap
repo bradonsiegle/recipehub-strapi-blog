@@ -3,7 +3,7 @@
 exports[`Feedback test cases Render check for invalid 1`] = `
 <DocumentFragment>
   <span
-    class="css-8k225a"
+    class="css-sk8pyf"
   >
     Please provide a valid value
   </span>
@@ -13,7 +13,7 @@ exports[`Feedback test cases Render check for invalid 1`] = `
 exports[`Feedback test cases Render check for valid 1`] = `
 <DocumentFragment>
   <span
-    class="css-1wbdfck"
+    class="css-3xrj9w"
   >
     Looks good!
   </span>
