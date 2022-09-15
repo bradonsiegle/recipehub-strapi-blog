@@ -15,9 +15,9 @@ jobs:
     # Operating System
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: ./frontend
+    # defaults:
+    #   run:
+    #     working-directory: ./frontend
 
     # Job steps
     steps:
