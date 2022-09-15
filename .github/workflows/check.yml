@@ -1,0 +1,31 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  test_and_lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # Install deps
+      - name: Install npm deps
+        run: npm i
+
+      # Run project test
+      - name: Tests
+        run: npm test
+
+      # Run project linter
+      - name: Lint
+        run: npm run lint
