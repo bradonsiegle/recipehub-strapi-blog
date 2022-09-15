@@ -28,7 +28,7 @@ jobs:
 
       # Install deps
       - name: Install npm deps
-        run: npm i
+        run: npm i --legacy-peer-deps
 
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
