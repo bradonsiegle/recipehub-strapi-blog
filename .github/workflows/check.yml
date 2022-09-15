@@ -20,7 +20,7 @@ jobs:
 
       # Install deps
       - name: Install npm deps
-        run: npm i
+        run: npm i --legacy-peer-deps
 
       # Run project test
       - name: Tests
