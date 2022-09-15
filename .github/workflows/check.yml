@@ -28,4 +28,4 @@ jobs:
 
       # Run project linter
       - name: Lint
-        run: npm run lint
+        run: npm run lint -- --fix
