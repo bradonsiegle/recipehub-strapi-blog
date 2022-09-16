@@ -71,6 +71,8 @@ export const SearchInput = styled(Input)`
 
 export const Content = styled.main`
 	grid-area: content;
+	min-height: 84vh;
+	margin-top: 1rem;
 `;
 
 export const Footer = styled.footer`
