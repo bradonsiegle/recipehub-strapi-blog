@@ -40,6 +40,7 @@ const Login: NextPage = () => {
 						required: true,
 						minLength: 6,
 					})}
+					height={8}
 				></StyledInput>
 				<StyledInput
 					label='Password'
@@ -52,6 +53,7 @@ const Login: NextPage = () => {
 						required: true,
 						minLength: 6,
 					})}
+					height={8}
 				></StyledInput>
 				<Button type='submit'>Login</Button>
 				<h3>
