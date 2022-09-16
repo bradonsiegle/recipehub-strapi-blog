@@ -20,11 +20,13 @@ const Login: NextPage = () => {
         <StyledInput
           label="Identifier"
           placeholder="Username or Email"
+          height={6}
         ></StyledInput>
         <StyledInput
           label="Password"
           type="password"
           placeholder="Password"
+          height={6}
         ></StyledInput>
         <Button type="submit">Login</Button>
         <h3>
