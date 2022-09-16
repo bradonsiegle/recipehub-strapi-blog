@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page should render 1`] = `
+<div>
+  <form>
+    <div
+      class="css-qbqlvy"
+    >
+      <section
+        class="css-agu7af"
+      >
+        <h2>
+          Login
+        </h2>
+        <label
+          class="css-1fl7lmo"
+          height="8"
+          width="20"
+        >
+          <span
+            class="css-1grri41"
+          >
+            Identifier
+          </span>
+          <div
+            class="css-52ovgc"
+          >
+            <input
+              class="css-1bj11r8"
+              name="identifier"
+              placeholder="Username or Email"
+            />
+          </div>
+          <span
+            class="css-1reg724"
+            role="alert"
+          >
+             
+          </span>
+        </label>
+        <label
+          class="css-1fl7lmo"
+          height="8"
+          width="20"
+        >
+          <span
+            class="css-1grri41"
+          >
+            Password
+          </span>
+          <div
+            class="css-52ovgc"
+          >
+            <input
+              class="css-1bj11r8"
+              name="password"
+              placeholder="Password"
+              role="textbox"
+              type="password"
+            />
+          </div>
+          <span
+            class="css-1reg724"
+            role="alert"
+          >
+             
+          </span>
+        </label>
+        <button
+          class="css-4dagrr"
+          color="primary"
+          type="submit"
+        >
+          Login
+        </button>
+        <h3>
+          <a
+            class="css-pm0vza"
+            href="/registration"
+          >
+            Create Account
+          </a>
+        </h3>
+      </section>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Login page should validate client 1`] = `
+<span
+  class="css-1reg724"
+  role="alert"
+>
+   
+</span>
+`;
+
+exports[`Login page should validate client 2`] = `
+<span
+  class="css-1reg724"
+  role="alert"
+>
+   
+</span>
+`;

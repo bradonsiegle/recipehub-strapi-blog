@@ -53,6 +53,7 @@ const Login: NextPage = () => {
 					label='Password'
 					type='password'
 					placeholder='Password'
+					role='textbox'
 					feedback={
 						errors.password ? (
 							<Feedback>{errors.password?.message}</Feedback>
