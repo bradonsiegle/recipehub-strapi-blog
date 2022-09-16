@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { IconButton } from '@/components/IconButton';
 import { StyledLink } from '../StyledLink';
+
 import {
 	Wrapper,
 	LogoLink,
@@ -34,8 +35,8 @@ export const Layout: FC<Props> = ({ children, isDark, onThemeToggle }) => {
 				<Link href='/all' passHref>
 					<StyledLink>All</StyledLink>
 				</Link>
-				<Link href='/news' passHref>
-					<StyledLink>News</StyledLink>
+				<Link href='/login' passHref>
+					<IconButton name='Login' size={1} />
 				</Link>
 				<IconButton
 					name={isDark ? 'Moon' : 'Sun'}
