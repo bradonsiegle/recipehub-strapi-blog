@@ -34,11 +34,18 @@ const Login: NextPage = () => {
 					label='Identifier'
 					placeholder='Username or Email'
 					feedback={
-						errors.identifier ? <Feedback>Min length 6!</Feedback> : <>&nbsp;</>
+						errors.identifier ? (
+							<Feedback>{errors.identifier?.message}</Feedback>
+						) : (
+							<>&nbsp;</>
+						)
 					}
 					{...register('identifier', {
-						required: true,
-						minLength: 6,
+						required: 'Please enter your username or email',
+						minLength: {
+							value: 6,
+							message: 'Username or email must be at least 6 characters',
+						},
 					})}
 					height={8}
 				></StyledInput>
@@ -47,11 +54,18 @@ const Login: NextPage = () => {
 					type='password'
 					placeholder='Password'
 					feedback={
-						errors.password ? <Feedback>Min length 6!</Feedback> : <>&nbsp;</>
+						errors.password ? (
+							<Feedback>{errors.password?.message}</Feedback>
+						) : (
+							<>&nbsp;</>
+						)
 					}
 					{...register('password', {
-						required: true,
-						minLength: 6,
+						required: 'Please enter your password',
+						minLength: {
+							value: 6,
+							message: 'Password must be at least 6 characters',
+						},
 					})}
 					height={8}
 				></StyledInput>
