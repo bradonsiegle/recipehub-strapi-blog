@@ -64,21 +64,24 @@ exports[`Layout test cases should render the layout 1`] = `
       </button>
     </nav>
     <label
-      class="css-t7s8kj"
+      class="css-fabfz"
       height="7"
       width="20"
     >
+      <span
+        class="css-1grri41"
+      />
       <div
-        class="css-1v67xy3"
+        class="css-52ovgc"
       >
         <input
-          class="css-13914rr"
+          class="css-1bj11r8"
           placeholder="Search"
         />
         <svg
           aria-hidden="true"
           aria-label="Search"
-          class="css-1oer7xp"
+          class="css-mjc9ur"
           data-icon="search"
           fill="currentColor"
           focusable="false"
@@ -92,6 +95,10 @@ exports[`Layout test cases should render the layout 1`] = `
           />
         </svg>
       </div>
+      <span
+        class="css-1reg724"
+        role="alert"
+      />
     </label>
     <main
       class="css-1qc1fvq"

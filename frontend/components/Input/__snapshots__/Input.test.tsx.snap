@@ -3,23 +3,27 @@
 exports[`Input test cases Should render 1`] = `
 <DocumentFragment>
   <label
-    class="css-36ab0f"
+    class="css-7e1mv2"
     height="7"
     width="20"
   >
     <span
-      class="css-1g58nbn"
+      class="css-1grri41"
     >
       Label
     </span>
     <div
-      class="css-1v67xy3"
+      class="css-52ovgc"
     >
       <input
-        class="css-13914rr"
+        class="css-1bj11r8"
         placeholder="Placeholder"
       />
     </div>
+    <span
+      class="css-1reg724"
+      role="alert"
+    />
   </label>
 </DocumentFragment>
 `;
@@ -27,26 +31,26 @@ exports[`Input test cases Should render 1`] = `
 exports[`Input test cases Should render with icon 1`] = `
 <DocumentFragment>
   <label
-    class="css-36ab0f"
+    class="css-7e1mv2"
     height="7"
     width="20"
   >
     <span
-      class="css-1g58nbn"
+      class="css-1grri41"
     >
       Label
     </span>
     <div
-      class="css-1v67xy3"
+      class="css-52ovgc"
     >
       <input
-        class="css-13914rr"
+        class="css-1bj11r8"
         placeholder="Placeholder"
       />
       <svg
         aria-hidden="true"
         aria-label="Search"
-        class="css-1oer7xp"
+        class="css-mjc9ur"
         data-icon="search"
         fill="currentColor"
         focusable="false"
@@ -60,6 +64,10 @@ exports[`Input test cases Should render with icon 1`] = `
         />
       </svg>
     </div>
+    <span
+      class="css-1reg724"
+      role="alert"
+    />
   </label>
 </DocumentFragment>
 `;
