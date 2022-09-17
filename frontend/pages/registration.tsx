@@ -92,7 +92,7 @@ const Registration: NextPage = () => {
 				<h3>
 					Already have an account?{' '}
 					<Link href='/login' passHref>
-						<StyledLink>Login</StyledLink>
+						<StyledLink underline>Login</StyledLink>
 					</Link>
 				</h3>
 			</CenteredTile>
