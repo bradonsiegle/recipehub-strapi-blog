@@ -9,9 +9,6 @@ export default {
 } as ComponentMeta<typeof Layout>;
 
 export const BasicLayout: ComponentStoryObj<typeof Layout> = {
-  play: async ({ args }) => {
-    await userEvent.click(screen.getByRole("button"));
-  },
   args: {
     children: (
       <>
