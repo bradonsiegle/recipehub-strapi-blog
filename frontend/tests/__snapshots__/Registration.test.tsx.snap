@@ -4,16 +4,16 @@ exports[`Registration page should render 1`] = `
 <div>
   <form>
     <div
-      class="css-z6fp3u"
+      class="css-xlq2o8"
     >
       <section
-        class="css-1yfvozk"
+        class="css-agu7af"
       >
         <h2>
           Create an account
         </h2>
         <label
-          class="css-olwhmk"
+          class="css-58qgct"
           height="7"
           width="20"
         >
@@ -39,7 +39,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-olwhmk"
+          class="css-58qgct"
           height="7"
           width="20"
         >
@@ -65,7 +65,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-olwhmk"
+          class="css-58qgct"
           height="7"
           width="20"
         >
