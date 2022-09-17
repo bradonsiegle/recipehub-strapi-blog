@@ -49,3 +49,5 @@ export const IconButton: FC<Props> = forwardRef(
     </Button>
   )
 );
+
+IconButton.displayName = "IconButton";
