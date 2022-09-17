@@ -6,5 +6,7 @@ export const GlobalStyles = css`
 		font-family: 'Poppins', sans-serif;
 		margin: 0;
 		padding: 0;
+		background-color: var(--themeBackgroundColor);
+		color: var(--themeColor);
 	}
 `;
