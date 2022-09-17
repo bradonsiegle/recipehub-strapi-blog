@@ -61,7 +61,7 @@ export const Layout: FC<Props> = ({ children }) => {
 						<IconButton name='Login' size={1} />
 					</Link>
 					<IconButton
-						name={isDark ? 'Moon' : 'Sun'}
+						name={!isDark ? 'Moon' : 'Sun'}
 						size={1}
 						onClick={toggleDark}
 					/>

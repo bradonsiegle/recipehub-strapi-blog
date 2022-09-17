@@ -4,55 +4,55 @@ exports[`Login page should render 1`] = `
 <div>
   <form>
     <div
-      class="css-qbqlvy"
+      class="css-5qrry1"
     >
       <section
-        class="css-agu7af"
+        class="css-1yfvozk"
       >
         <h2>
           Login
         </h2>
         <label
-          class="css-1fl7lmo"
+          class="css-1u9d40l"
           height="8"
           width="20"
         >
           <span
-            class="css-1grri41"
+            class="css-1c61fid"
           >
             Identifier
           </span>
           <div
-            class="css-52ovgc"
+            class="css-1281p00"
           >
             <input
-              class="css-1bj11r8"
+              class="css-1whc4li"
               name="identifier"
               placeholder="Username or Email"
             />
           </div>
           <span
-            class="css-1reg724"
+            class="css-1n2f8m0"
             role="alert"
           >
              
           </span>
         </label>
         <label
-          class="css-1fl7lmo"
+          class="css-1u9d40l"
           height="8"
           width="20"
         >
           <span
-            class="css-1grri41"
+            class="css-1c61fid"
           >
             Password
           </span>
           <div
-            class="css-52ovgc"
+            class="css-1281p00"
           >
             <input
-              class="css-1bj11r8"
+              class="css-1whc4li"
               name="password"
               placeholder="Password"
               role="textbox"
@@ -60,7 +60,7 @@ exports[`Login page should render 1`] = `
             />
           </div>
           <span
-            class="css-1reg724"
+            class="css-1n2f8m0"
             role="alert"
           >
              
@@ -89,7 +89,7 @@ exports[`Login page should render 1`] = `
 
 exports[`Login page should validate client 1`] = `
 <span
-  class="css-1reg724"
+  class="css-1n2f8m0"
   role="alert"
 >
    
@@ -98,7 +98,7 @@ exports[`Login page should validate client 1`] = `
 
 exports[`Login page should validate client 2`] = `
 <span
-  class="css-1reg724"
+  class="css-1n2f8m0"
   role="alert"
 >
    
