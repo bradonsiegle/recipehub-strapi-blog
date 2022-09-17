@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration page should render 1`] = `
+<div>
+  <form>
+    <div
+      class="css-z6fp3u"
+    >
+      <section
+        class="css-1yfvozk"
+      >
+        <h2>
+          Create an account
+        </h2>
+        <label
+          class="css-olwhmk"
+          height="7"
+          width="20"
+        >
+          <span
+            class="css-1grri41"
+          >
+            username
+          </span>
+          <div
+            class="css-52ovgc"
+          >
+            <input
+              class="css-1bj11r8"
+              name="username"
+              placeholder="username"
+            />
+          </div>
+          <span
+            class="css-1reg724"
+            role="alert"
+          >
+             
+          </span>
+        </label>
+        <label
+          class="css-olwhmk"
+          height="7"
+          width="20"
+        >
+          <span
+            class="css-1grri41"
+          >
+            email
+          </span>
+          <div
+            class="css-52ovgc"
+          >
+            <input
+              class="css-1bj11r8"
+              name="email"
+              placeholder="email"
+            />
+          </div>
+          <span
+            class="css-1reg724"
+            role="alert"
+          >
+             
+          </span>
+        </label>
+        <label
+          class="css-olwhmk"
+          height="7"
+          width="20"
+        >
+          <span
+            class="css-1grri41"
+          >
+            password
+          </span>
+          <div
+            class="css-52ovgc"
+          >
+            <input
+              class="css-1bj11r8"
+              name="password"
+              placeholder="password"
+              type="password"
+            />
+          </div>
+          <span
+            class="css-1reg724"
+            role="alert"
+          >
+             
+          </span>
+        </label>
+        <button
+          class="css-4dagrr"
+          color="primary"
+          type="submit"
+        >
+          Register
+        </button>
+        <h3>
+          Already have an account?
+           
+          <a
+            class="css-pm0vza"
+            href="/login"
+          >
+            Login
+          </a>
+        </h3>
+      </section>
+    </div>
+  </form>
+</div>
+`;
