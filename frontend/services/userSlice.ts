@@ -20,6 +20,7 @@ export const userSlice = createSlice({
 			...state,
 			...payload,
 		}),
+		clear: () => initialState,
 	},
 });
 
