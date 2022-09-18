@@ -51,5 +51,42 @@ describe('User slice', () => {
 				requestState: 'pending',
 			});
 		});
+		it("should set the state to 'fufilled' when login is fulfilled", () => {
+			const fulfilledState = reducer(
+				initialState,
+				login.fulfilled(
+					{
+						jwt: updatedState.jwt,
+						user: {
+							username: updatedState.username,
+							email: updatedState.email,
+						},
+					},
+					requestId,
+					loginData
+				)
+			);
+			expect(fulfilledState).toEqual({
+				...updatedState,
+				requestState: 'fulfilled',
+			});
+		});
+		it("should set the state to 'rejected' when login is rejected", () => {
+			const payloadError = {
+				error: {
+					name: '500',
+					message: 'Internal Server Error',
+				},
+			};
+			const rejectedState = reducer(
+				initialState,
+				login.rejected({} as Error, requestId, loginData, payloadError)
+			);
+			expect(rejectedState).toEqual({
+				...initialState,
+				requestState: 'rejected',
+				error: payloadError.error,
+			});
+		});
 	});
 });
