@@ -13,12 +13,24 @@ describe('User slice', () => {
 			const state = reducer(initialState, actions.update(updatedState));
 			expect(state).toEqual(updatedState);
 		});
+
 		it('should update only the jwt', () => {
 			const state = reducer(
 				initialState,
 				actions.update({ jwt: updatedState.jwt })
 			);
 			expect(state).toEqual({ ...initialState, jwt: updatedState.jwt });
+		});
+
+		it('should clear the state', () => {
+			const stateWithValues = reducer(
+				initialState,
+				actions.update(updatedState)
+			);
+			expect(stateWithValues).toEqual(updatedState);
+
+			const state = reducer(stateWithValues, actions.clear());
+			expect(state).toEqual(initialState);
 		});
 	});
 });
