@@ -45,13 +45,23 @@ export const userSlice = createSlice({
 		clear: () => initialState,
 	},
 	extraReducers: (builder) => {
-		builder.addCase(login.fulfilled, (state, { payload }) => {
-			state.requestState = 'fulfilled';
-			state.jwt = payload.jwt;
-			state.username = payload.user.username;
-			state.email = payload.user.email;
-			state.error = undefined;
-		});
+		builder
+			.addCase(login.fulfilled, (state, { payload }) => {
+				state.requestState = 'fulfilled';
+				state.jwt = payload.jwt;
+				state.username = payload.user.username;
+				state.email = payload.user.email;
+				state.error = undefined;
+			})
+			.addCase(login.pending, (state) => {
+				state.requestState = 'pending';
+				state.error = undefined;
+			})
+			.addCase(login.rejected, (state, { payload }) => {
+				const payloadError = (payload as { error: SerializedError })?.error;
+				state.requestState = 'rejected';
+				state.error = payloadError;
+			});
 	},
 });
 
