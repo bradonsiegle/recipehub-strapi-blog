@@ -122,6 +122,14 @@ describe('User slice', () => {
 			const store = storeCreator();
 			await store.dispatch(login({ ...loginData, password: 'wrong' }));
 			const state = store.getState();
+
+			expect(state).toEqual({
+				user: {
+					...initialState,
+					requestState: 'rejected',
+					...ValidationError,
+				},
+			});
 		});
 	});
 });
