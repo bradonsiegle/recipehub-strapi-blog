@@ -4,3 +4,27 @@
 // Used for __tests__/testing-library.js
 // Learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
+
+import 'whatwg-fetch';
+
+import { server } from './mocks/server';
+
+Object.defineProperty(window, 'matchMedia', {
+	writable: true,
+	value: jest.fn().mockImplementation((query) => ({
+		matches: false,
+		media: query,
+		onchange: null,
+		addListener: jest.fn(), // deprecated
+		removeListener: jest.fn(), // deprecated
+		addEventListener: jest.fn(),
+		removeEventListener: jest.fn(),
+		dispatchEvent: jest.fn(),
+	})),
+});
+// Establish API mocking before all tests.
+beforeAll(() => server.listen());
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());
