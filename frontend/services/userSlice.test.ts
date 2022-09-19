@@ -93,6 +93,9 @@ describe('User slice', () => {
 	});
 
 	describe('login async flow', () => {
+		beforeEach(() => {
+			localStorage.clear();
+		});
 		it('success login flow', async () => {
 			const store = storeCreator();
 			const stateBeforeLogin = store.getState();
