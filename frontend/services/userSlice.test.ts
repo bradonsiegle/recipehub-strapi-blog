@@ -102,7 +102,6 @@ describe('User slice', () => {
 				},
 			});
 			await store.dispatch(login(loginData));
-			console.log(store);
 
 			const stateAfterLogin = store.getState();
 			expect(stateAfterLogin).toEqual({
@@ -111,6 +110,9 @@ describe('User slice', () => {
 					requestState: 'fulfilled',
 				},
 			});
+			expect(localStorage.getItem('jwt')).toBe(updatedState.jwt);
+			expect(localStorage.getItem('username')).toBe(updatedState.username);
+			expect(localStorage.getItem('email')).toBe(updatedState.email);
 		});
 	});
 });
