@@ -16,8 +16,8 @@ export type UserState = {
 type RequestState = 'pending' | 'fulfilled' | 'rejected';
 
 export type LoginData = {
-	identifier?: string;
-	password?: string;
+	identifier: string;
+	password: string;
 };
 
 type UserPayload = {

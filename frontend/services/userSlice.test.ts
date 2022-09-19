@@ -1,3 +1,5 @@
+import { storeCreator } from '@/store';
+
 import { mockUser } from '@/mocks/user';
 import { reducer, actions, initialState, login } from './userSlice';
 
@@ -8,7 +10,7 @@ const updatedState = {
 };
 
 const loginData = {
-	identifier: mockUser.user.username,
+	identifier: mockUser.user.email,
 	password: mockUser.user.password,
 };
 
@@ -86,6 +88,28 @@ describe('User slice', () => {
 				...initialState,
 				requestState: 'rejected',
 				error: payloadError.error,
+			});
+		});
+	});
+
+	describe('login async flow', () => {
+		it('success login flow', async () => {
+			const store = storeCreator();
+			const stateBeforeLogin = store.getState();
+			expect(stateBeforeLogin).toEqual({
+				user: {
+					...initialState,
+				},
+			});
+			await store.dispatch(login(loginData));
+			console.log(store);
+
+			const stateAfterLogin = store.getState();
+			expect(stateAfterLogin).toEqual({
+				user: {
+					...updatedState,
+					requestState: 'fulfilled',
+				},
 			});
 		});
 	});
