@@ -2,9 +2,18 @@ import { rest } from 'msw';
 
 import { LoginData } from '@/services/userSlice';
 
-import { mockUser, ValidationError, RegistrationError } from './user';
+import { mockUser } from './user';
 
 const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+
+const ValidationError = {
+	error: {
+		status: 400,
+		name: 'ValidationError',
+		message: 'Invalid identifier or password',
+		details: {},
+	},
+};
 
 export const handlers = [
 	rest.post<LoginData>(`${api_url}/auth/local`, (req, res, ctx) => {
@@ -28,20 +37,20 @@ export const handlers = [
 		return res(ctx.status(400), ctx.json(ValidationError));
 	}),
 
-	rest.post<RegistrationData>(
-		`${api_url}/auth/local/register`,
-		(req, res, ctx) => {
-			const data = req.body;
+	// 	rest.post<RegistrationData>(
+	// 		`${api_url}/auth/local/register`,
+	// 		(req, res, ctx) => {
+	// 			const data = req.body;
 
-			if (
-				data.email === mockUser.user.email &&
-				data.password === mockUser.user.password &&
-				data.username === mockUser.user.username
-			) {
-				return res(ctx.status(200), ctx.json(mockUser));
-			}
+	// 			if (
+	// 				data.email === mockUser.user.email &&
+	// 				data.password === mockUser.user.password &&
+	// 				data.username === mockUser.user.username
+	// 			) {
+	// 				return res(ctx.status(200), ctx.json(mockUser));
+	// 			}
 
-			return res(ctx.status(400), ctx.json(RegistrationError));
-		}
-	),
+	// 			return res(ctx.status(400), ctx.json(RegistrationError));
+	// 		}
+	// 	),
 ];
