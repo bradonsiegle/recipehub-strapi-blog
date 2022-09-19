@@ -1,7 +1,13 @@
-import { storeCreator } from '@/store';
+import { storeCreator as globalStoreCreator } from '@/store';
 
 import { mockUser, ValidationError } from '@/mocks/user';
-import { reducer, actions, initialState, login } from './userSlice';
+import { reducer, initialState, login } from './userSlice';
+
+const rootReducer = {
+	user: reducer,
+};
+
+const storeCreator = () => globalStoreCreator(rootReducer);
 
 const updatedState = {
 	jwt: mockUser.jwt,
@@ -13,8 +19,6 @@ const loginData = {
 	identifier: mockUser.user.email,
 	password: mockUser.user.password,
 };
-
-const requestId = 'requestId';
 
 describe('User slice', () => {
 	describe('login async flow', () => {
