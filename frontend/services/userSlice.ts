@@ -81,7 +81,7 @@ const setupUserInfoToLocalStorage = (result: UserPayload) => {
 	localStorage.setItem('email', result?.user?.email);
 };
 
-export const login = createAsyncThunk<UserPayload, LoginData>(
+export const login = createAsyncThunk<UserPayload, LoginData | undefined>(
 	'user/login',
 	async (loginData, { rejectWithValue }) => {
 		try {

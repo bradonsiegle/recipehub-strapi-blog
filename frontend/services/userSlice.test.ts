@@ -131,5 +131,20 @@ describe('User slice', () => {
 				},
 			});
 		});
+
+		it('login flow with saved jwt', async () => {
+			localStorage.setItem('jwt', mockUser.jwt);
+
+			const store = storeCreator();
+			await store.dispatch(login());
+			const state = store.getState();
+
+			expect(state).toEqual({
+				user: {
+					...updatedState,
+					requestState: 'fulfilled',
+				},
+			});
+		});
 	});
 });
