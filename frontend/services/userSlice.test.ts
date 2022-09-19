@@ -1,6 +1,6 @@
 import { storeCreator } from '@/store';
 
-import { mockUser } from '@/mocks/user';
+import { mockUser, ValidationError } from '@/mocks/user';
 import { reducer, actions, initialState, login } from './userSlice';
 
 const updatedState = {
@@ -116,6 +116,12 @@ describe('User slice', () => {
 			expect(localStorage.getItem('jwt')).toBe(updatedState.jwt);
 			expect(localStorage.getItem('username')).toBe(updatedState.username);
 			expect(localStorage.getItem('email')).toBe(updatedState.email);
+		});
+
+		it('failed login flow', async () => {
+			const store = storeCreator();
+			await store.dispatch(login({ ...loginData, password: 'wrong' }));
+			const state = store.getState();
 		});
 	});
 });
