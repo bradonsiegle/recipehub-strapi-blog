@@ -1,7 +1,7 @@
 import { storeCreator as globalStoreCreator } from '@/store';
 
 import { mockUser, ValidationError } from '@/mocks/user';
-import { reducer, initialState, login } from './userSlice';
+import { reducer, initialState, login, logout } from './userSlice';
 
 const rootReducer = {
 	user: reducer,
@@ -74,6 +74,37 @@ describe('User slice', () => {
 					requestState: 'fulfilled',
 				},
 			});
+		});
+	});
+
+	describe('logout flow', () => {
+		it('logout action', async () => {
+			//login
+			const store = storeCreator();
+			await store.dispatch(login(loginData));
+			const stateAfterLogin = store.getState();
+			expect(stateAfterLogin).toEqual({
+				user: {
+					...updatedState,
+					requestState: 'fulfilled',
+				},
+			});
+			expect(localStorage.getItem('jwt')).toBe(mockUser.jwt);
+			expect(localStorage.getItem('username')).toBe(mockUser.user.username);
+			expect(localStorage.getItem('email')).toBe(mockUser.user.email);
+
+			//logout
+			store.dispatch(logout());
+
+			const stateAfterLogout = store.getState();
+			expect(stateAfterLogout).toEqual({
+				user: {
+					...initialState,
+				},
+			});
+			expect(localStorage.getItem('jwt')).toBe(null);
+			expect(localStorage.getItem('username')).toBe(null);
+			expect(localStorage.getItem('email')).toBe(null);
 		});
 	});
 });
