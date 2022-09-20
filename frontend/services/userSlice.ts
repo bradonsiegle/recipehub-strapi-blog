@@ -102,20 +102,21 @@ export const login = createAsyncThunk<UserPayload, LoginData | undefined>(
 		try {
 			const jwt = localStorage.getItem('jwt');
 
-			const response = jwt
-				? await fetch(`${api_url}/users/me`, {
-						method: 'GET',
-						headers: {
-							Authorization: `Bearer ${jwt}`,
-						},
-				  })
-				: await fetch(`${api_url}/auth/local`, {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify(loginData),
-				  });
+			const response =
+				jwt && !loginData?.identifier && !loginData?.password
+					? await fetch(`${api_url}/users/me`, {
+							method: 'GET',
+							headers: {
+								Authorization: `Bearer ${jwt}`,
+							},
+					  })
+					: await fetch(`${api_url}/auth/local`, {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify(loginData),
+					  });
 			const data = await response.json();
 
 			if (response.status < 200 || response.status >= 300) {
