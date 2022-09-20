@@ -154,7 +154,7 @@ export const registration = createAsyncThunk<UserPayload, RegistrationData>(
 			const result = await response.json();
 
 			if (response.status < 200 || response.status >= 300) {
-				return rejectWithValue(data);
+				return rejectWithValue(result);
 			}
 
 			setupUserInfoToLocalStorage(result);
