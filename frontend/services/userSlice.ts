@@ -70,6 +70,7 @@ export const userSlice = createSlice({
 				(state, { payload }) => {
 					const payloadError = (payload as { error: SerializedError })?.error;
 					state.error = payloadError;
+
 					state.requestState = 'rejected';
 				}
 			);
@@ -150,7 +151,7 @@ export const registration = createAsyncThunk<UserPayload, RegistrationData>(
 			const result = await response.json();
 
 			if (response.status < 200 || response.status >= 300) {
-				return rejectWithValue(result);
+				return rejectWithValue(data);
 			}
 
 			setupUserInfoToLocalStorage(result);
