@@ -1,3 +1,4 @@
+import { RootState } from '@/store';
 import {
 	createAsyncThunk,
 	createSlice,
@@ -78,6 +79,8 @@ export const userSlice = createSlice({
 });
 
 export const { actions, reducer } = userSlice;
+
+export const selectUser = (state: RootState) => state.user;
 
 const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
