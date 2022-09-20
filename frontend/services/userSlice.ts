@@ -39,6 +39,7 @@ export const userSlice = createSlice({
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
+		//login flow
 		builder
 			.addCase(login.fulfilled, (state, { payload }) => {
 				state.requestState = 'fulfilled';
@@ -56,6 +57,18 @@ export const userSlice = createSlice({
 				state.requestState = 'rejected';
 				state.error = payloadError;
 			});
+
+		//logout flow
+		builder.addCase(logout.fulfilled, () => initialState);
+		// .addCase(logout.pending, (state) => {
+		// 	state.requestState = 'pending';
+		// 	state.error = undefined;
+		// })
+		// .addCase(logout.rejected, (state, { payload }) => {
+		// 	const payloadError = (payload as { error: SerializedError })?.error;
+		// 	state.requestState = 'rejected';
+		// 	state.error = payloadError;
+		// });
 	},
 });
 
@@ -113,3 +126,7 @@ export const login = createAsyncThunk<UserPayload, LoginData | undefined>(
 		}
 	}
 );
+
+export const logout = createAsyncThunk('user/logout', async () => {
+	clearUserInfoFromLocalStorage();
+});
