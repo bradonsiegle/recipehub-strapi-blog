@@ -12,8 +12,11 @@ exports[`Login page should render 1`] = `
         <h2>
           Login
         </h2>
+        <h3>
+           
+        </h3>
         <label
-          class="css-10bmm8i"
+          class="css-1fl7lmo"
           height="8"
           width="20"
         >
@@ -39,7 +42,7 @@ exports[`Login page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-10bmm8i"
+          class="css-1fl7lmo"
           height="8"
           width="20"
         >

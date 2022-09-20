@@ -6,13 +6,9 @@ export const rootReducer = {
 	user: userSlice.reducer,
 };
 
-export const storeCreator = (reducer = rootReducer) => {
-	return configureStore({
-		reducer,
-	});
-};
-
-export const store = storeCreator();
+export const store = configureStore({
+	reducer: rootReducer,
+});
 
 export type RootState = ReturnType<typeof store.getState>;
 
