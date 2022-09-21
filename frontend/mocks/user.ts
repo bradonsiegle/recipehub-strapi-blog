@@ -26,7 +26,7 @@ export const RegistrationError = {
 	error: {
 		status: 400,
 		name: 'ApplicationError',
-		message: 'An error occurred',
+		message: 'An error occurred during account creation',
 		details: {},
 	},
 };
