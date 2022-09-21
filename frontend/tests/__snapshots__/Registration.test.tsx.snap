@@ -12,8 +12,11 @@ exports[`Registration page should render 1`] = `
         <h2>
           Create an account
         </h2>
+        <h3>
+           
+        </h3>
         <label
-          class="css-58qgct"
+          class="css-olwhmk"
           height="7"
           width="20"
         >
@@ -39,7 +42,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-58qgct"
+          class="css-olwhmk"
           height="7"
           width="20"
         >
@@ -65,7 +68,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-58qgct"
+          class="css-olwhmk"
           height="7"
           width="20"
         >
