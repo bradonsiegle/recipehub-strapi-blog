@@ -1,7 +1,7 @@
 export {
-  Button,
-  PrimaryButton,
-  SecondaryButton,
-  WarningButton,
-  DangerButton,
-} from "./Button";
+	Button,
+	PrimaryButton,
+	SecondaryButton,
+	WarningButton,
+	DangerButton,
+} from './Button';

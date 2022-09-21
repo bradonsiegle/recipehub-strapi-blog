@@ -10,3 +10,47 @@ exports[`Button test cases should render 1`] = `
   </button>
 </DocumentFragment>
 `;
+
+exports[`Button test cases should render danger button 1`] = `
+<DocumentFragment>
+  <button
+    class="css-u7ws8f"
+    color="danger"
+  >
+    Test
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button test cases should render primary button 1`] = `
+<DocumentFragment>
+  <button
+    class="css-4dagrr"
+    color="primary"
+  >
+    Test
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button test cases should render secondary button 1`] = `
+<DocumentFragment>
+  <button
+    class="css-110k448"
+    color="secondary"
+  >
+    Test
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button test cases should render warning button 1`] = `
+<DocumentFragment>
+  <button
+    class="css-1rbl8ym"
+    color="warning"
+  >
+    Test
+  </button>
+</DocumentFragment>
+`;
