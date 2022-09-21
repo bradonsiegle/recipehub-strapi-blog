@@ -1,6 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Registration page should render 1`] = `
+exports[`Registration page Client validation check 1`] = `
+<span
+  class="css-1reg724"
+  role="alert"
+>
+   
+</span>
+`;
+
+exports[`Registration page Client validation check 2`] = `
+<span
+  class="css-1reg724"
+  role="alert"
+>
+  <span
+    class="css-sk8pyf"
+  >
+    Email is invalid
+  </span>
+</span>
+`;
+
+exports[`Registration page Client validation check 3`] = `
+<span
+  class="css-1reg724"
+  role="alert"
+>
+   
+</span>
+`;
+
+exports[`Registration page Render check 1`] = `
 <div>
   <form>
     <div
@@ -16,7 +47,7 @@ exports[`Registration page should render 1`] = `
            
         </h3>
         <label
-          class="css-58qgct"
+          class="css-olwhmk"
           height="7"
           width="20"
         >
@@ -42,7 +73,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-58qgct"
+          class="css-olwhmk"
           height="7"
           width="20"
         >
@@ -58,6 +89,7 @@ exports[`Registration page should render 1`] = `
               class="css-1bj11r8"
               name="email"
               placeholder="email"
+              type="email"
             />
           </div>
           <span
@@ -68,7 +100,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-58qgct"
+          class="css-olwhmk"
           height="7"
           width="20"
         >
@@ -84,6 +116,7 @@ exports[`Registration page should render 1`] = `
               class="css-1bj11r8"
               name="password"
               placeholder="password"
+              role="textbox"
               type="password"
             />
           </div>
@@ -99,7 +132,7 @@ exports[`Registration page should render 1`] = `
           color="primary"
           type="submit"
         >
-          Register
+          Sign Up
         </button>
         <h3>
           Already have an account?
