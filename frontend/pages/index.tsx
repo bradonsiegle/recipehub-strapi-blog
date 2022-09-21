@@ -1,55 +1,96 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import styled from "@emotion/styled";
+import type { NextPage, GetStaticProps } from 'next';
+import Head from 'next/head';
+import styled from '@emotion/styled';
+import { Course as CourseType, Response } from '@/types';
 
-import { Course } from "@/components/Course";
+import { Course } from '@/components/Course';
+import { url } from 'inspector';
 
 const CoursesWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2vw;
-  margin: 2vh 1vw;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2vw;
+	margin: 2vh 1vw;
 `;
 
-const Home: NextPage = () => {
-  return (
-    <>
-      <Head>
-        <title>CoursesBox</title>
-        <meta name="description" content="IT courses for everyone" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <CoursesWrapper>
-        {Array(4)
-          .fill("")
-          .map((_, i) => (
-            <Course
-              key={i}
-              header="React"
-              link="/hands-on-reactjs"
-              imageProps={{
-                width: 1368,
-                height: 770,
-                alt: "React",
-                src: "/covers/hands-on_reactjs_cover.png",
-              }}
-            >
-              <>
-                <p>
-                  React is the most popular library for building frontend web
-                  applications. Step-by-step by diving into all the basics,
-                </p>
-                <ul>
-                  <li>setup of the development environment</li>
-                  <li>configuration of the React JS app</li>
-                  <li>basic algorithms of Minesweeper</li>
-                </ul>
-              </>
-            </Course>
-          ))}
-      </CoursesWrapper>
-    </>
-  );
+type CoursesResponse = Response<CourseType[]>;
+
+export const getStaticProps: GetStaticProps = async () => {
+	const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+
+	const response = await fetch(`${api_url}/courses?populate=*`, {
+		method: 'GET',
+	});
+
+	const { data: courses, meta, error }: CoursesResponse = await response.json();
+
+	const status = error?.status;
+
+	if (status && (status < 200 || status >= 300)) {
+		return {
+			props: {
+				courses: [],
+				meta: {},
+			},
+		};
+	}
+
+	return {
+		props: {
+			courses,
+			meta,
+		},
+	};
 };
+
+const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
+
+const Home: NextPage<{ courses: CourseType[] }> = ({ courses }) => (
+	<>
+		<Head>
+			<title>CoursesBox</title>
+			<meta name='description' content='IT courses for everyone' />
+			<link rel='icon' href='/favicon.ico' />
+		</Head>
+		<CoursesWrapper>
+			{courses.map(
+				({
+					id,
+					attributes: {
+						header,
+						subtitle,
+						publishedAt,
+						cover: {
+							data: {
+								attributes: {
+									formats: {
+										medium: { url, width, height },
+									},
+								},
+							},
+						},
+					},
+				}) => (
+					<Course
+						key={id}
+						header={header}
+						link={`/courses/${id}`}
+						imageProps={{
+							width,
+							height,
+							alt: `Cover for ${header}`,
+							src: `${strapi_url}${url}`,
+						}}
+					>
+						<h3>{subtitle}</h3>
+						<time dateTime={publishedAt}>
+							{new Date(publishedAt).toDateString()}
+						</time>
+					</Course>
+				)
+			)}
+		</CoursesWrapper>
+	</>
+);
 
 export default Home;
