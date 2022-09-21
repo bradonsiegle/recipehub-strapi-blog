@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { render, screen, act } from '@/test-utils';
+import { pageRender as render, screen, act } from '@/test-utils';
 import Login from '@/pages/login';
 
 describe('Login page', () => {
