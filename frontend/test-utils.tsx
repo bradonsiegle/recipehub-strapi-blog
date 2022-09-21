@@ -5,7 +5,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from '@emotion/react';
 
 import { rootReducer, RootState } from './store';
-
+import { Layout } from './components/Layout';
 import { Themes } from './styles/themes';
 
 interface WrapperProps {
@@ -26,6 +26,20 @@ const customRender = (
 	const Wrapper: FC<WrapperProps> = ({ children }) => (
 		<Provider store={store}>
 			<ThemeProvider theme={Themes.light}>{children}</ThemeProvider>
+		</Provider>
+	);
+	return render(ui, { wrapper: Wrapper, ...options });
+};
+
+const pageRender = (
+	ui: ReactElement,
+	{ preloadedState, ...options }: Options = {}
+) => {
+	const store = configureStore({ reducer: rootReducer, preloadedState });
+
+	const Wrapper: FC<WrapperProps> = ({ children }) => (
+		<Provider store={store}>
+			<Layout>{children}</Layout>
 		</Provider>
 	);
 	return render(ui, { wrapper: Wrapper, ...options });
