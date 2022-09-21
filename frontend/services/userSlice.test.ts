@@ -86,6 +86,9 @@ describe('User slice', () => {
 	});
 
 	describe('logout flow', () => {
+		beforeEach(() => {
+			localStorage.clear();
+		});
 		it('logout action', async () => {
 			//login
 			const store = storeCreator();
