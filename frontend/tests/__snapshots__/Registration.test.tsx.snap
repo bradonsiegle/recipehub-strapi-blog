@@ -16,7 +16,7 @@ exports[`Registration page should render 1`] = `
            
         </h3>
         <label
-          class="css-olwhmk"
+          class="css-58qgct"
           height="7"
           width="20"
         >
@@ -42,7 +42,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-olwhmk"
+          class="css-58qgct"
           height="7"
           width="20"
         >
@@ -68,7 +68,7 @@ exports[`Registration page should render 1`] = `
           </span>
         </label>
         <label
-          class="css-olwhmk"
+          class="css-58qgct"
           height="7"
           width="20"
         >
