@@ -85,7 +85,7 @@ const Login: NextPage = () => {
 					})}
 					height={8}
 				></StyledInput>
-				<Button type='submit'>Login</Button>
+				<Button type='submit'>Sign In</Button>
 				<h3>
 					<Link href='/registration' passHref>
 						<StyledLink underline>Create Account</StyledLink>

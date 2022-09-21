@@ -9,7 +9,7 @@ describe('Login page', () => {
 	});
 	it('should validate client', async () => {
 		render(<Login />);
-		const submitButton = screen.getByRole('button', { name: 'Login' });
+		const submitButton = screen.getByRole('button', { name: 'Sign In' });
 
 		await act(async () => {
 			userEvent.click(submitButton);
@@ -62,7 +62,9 @@ describe('Login page', () => {
 
 		const alerts = screen.getAllByRole('alert');
 
+		expect(alerts).toHaveLength(3);
 		expect(alerts[0]).toMatchSnapshot();
 		expect(alerts[1]).toMatchSnapshot();
+		expect(alerts[2]).toMatchSnapshot();
 	});
 });
