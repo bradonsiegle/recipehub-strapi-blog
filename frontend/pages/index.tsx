@@ -16,8 +16,8 @@ const CoursesWrapper = styled.div`
 type CoursesResponse = Response<CourseType[]>;
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
-  const api_url = "https://coursesbox-production.up.railway.app/api";
+  const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+  // const api_url = "https://coursesbox-production.up.railway.app/api";
 
   const response = await fetch(`${api_url}/courses?populate=*`, {
     method: "GET",
@@ -44,8 +44,8 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-// const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
-const strapi_url = "https://coursesbox-production.up.railway.app/";
+const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
+// const strapi_url = "https://coursesbox-production.up.railway.app/";
 
 const Home: NextPage<{ courses: CourseType[] }> = ({ courses }) => (
   <>

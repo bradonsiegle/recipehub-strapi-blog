@@ -6,7 +6,7 @@ const nextConfig = {
 		domains: [
 			'localhost:1337',
 			'localhost',
-			'ec2-34-204-199-8.compute-1.amazonaws.com',
+			'coursesbox-production.up.railway.app',
 		],
 	},
 };
