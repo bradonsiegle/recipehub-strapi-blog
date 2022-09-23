@@ -82,7 +82,7 @@ export const { actions, reducer } = userSlice;
 
 export const selectUser = (state: RootState) => state.user;
 
-const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+const api_url = 'https://coursesbox-production.up.railway.app/api';
 
 const clearUserInfoFromLocalStorage = () => {
 	localStorage.removeItem('jwt');
