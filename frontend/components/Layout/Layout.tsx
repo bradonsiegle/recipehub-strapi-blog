@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
-import { FC, useState, useEffect, useLayoutEffect } from "react";
+import { FC, useState, useEffect, useLayoutEffect, ChangeEvent } from "react";
 import { IconButton } from "@/components/IconButton";
 import { StyledLink } from "../StyledLink";
 import { ThemeProvider } from "@emotion/react";
@@ -26,6 +27,10 @@ const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export const Layout: FC<Props> = ({ children }) => {
+  const router = useRouter();
+  const { q = "" } = router.query;
+  const [query, setQuery] = useState(q);
+
   const { username } = useSelector<RootState, RootState["user"]>(selectUser);
 
   const [isDark, setIsDark] = useState(true);
@@ -48,6 +53,27 @@ export const Layout: FC<Props> = ({ children }) => {
     setIsDark(isDark);
   }, []);
 
+  const searchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.currentTarget;
+    setQuery(value);
+    if (value?.length >= 2) {
+      router.push({
+        pathname: "/search",
+        query: { q: value },
+      });
+    }
+    if (!value) {
+      router.push("/");
+    }
+  };
+
+  useEffect(() => {
+    q && setQuery(q);
+    if (query && !q) {
+      setQuery("");
+    }
+  }, [q]);
+
   const theme = Themes[isDark ? "dark" : "light"];
 
   return (
@@ -62,10 +88,6 @@ export const Layout: FC<Props> = ({ children }) => {
           </LogoLink>
         </Link>
         <MainNav>
-          <Link href="/all" passHref>
-            <StyledLink>All</StyledLink>
-          </Link>
-
           <Link href={username ? "/user" : "/login"} passHref>
             <IconButton name={username ? "User" : "Login"} size={1} />
           </Link>
@@ -76,7 +98,12 @@ export const Layout: FC<Props> = ({ children }) => {
             onClick={toggleDark}
           />
         </MainNav>
-        <SearchInput icon="Search" placeholder="Search" onChange={() => null} />
+        <SearchInput
+          icon="Search"
+          placeholder="Search"
+          value={query}
+          onChange={searchChange}
+        />
         <Content>{children}</Content>
         <Footer>
           <p>© 2022 Bradon Siegle. All rights reserved.</p>
