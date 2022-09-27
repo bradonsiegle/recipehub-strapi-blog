@@ -2,7 +2,7 @@ import * as NextImage from 'next/image';
 import { ThemeProvider, Global } from '@emotion/react';
 import { Themes } from '../styles/themes';
 import { GlobalStyles } from '../styles/global';
-import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { RouterContext } from 'next/dist/shared/lib/router-context'; // next 12
 
 const OriginalNextImage = NextImage.default;
 
