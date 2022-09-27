@@ -1,1 +1,1 @@
-export { Course, Wrapper } from './Course';
+export { Course, Wrapper, Courses } from './Course';

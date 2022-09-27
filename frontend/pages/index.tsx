@@ -2,7 +2,7 @@ import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Course as CourseType, Response } from '@/types';
 
-import { Course, Wrapper } from '@/components/Course';
+import { Courses } from '@/components/Course';
 
 type CoursesResponse = Response<CourseType[]>;
 
@@ -44,44 +44,7 @@ const Home: NextPage<{ courses: CourseType[] }> = ({ courses }) => (
 			<meta name='description' content='IT courses for everyone' />
 			<link rel='icon' href='/favicon.ico' />
 		</Head>
-		<Wrapper>
-			{courses.map(
-				({
-					id,
-					attributes: {
-						header,
-						subtitle,
-						publishedAt,
-						cover: {
-							data: {
-								attributes: {
-									formats: {
-										medium: { url, width, height },
-									},
-								},
-							},
-						},
-					},
-				}) => (
-					<Course
-						key={id}
-						header={header}
-						link={`/courses/${id}`}
-						imageProps={{
-							width,
-							height,
-							alt: `Cover for ${header}`,
-							src: `${strapi_url}${url}`,
-						}}
-					>
-						<h3>{subtitle}</h3>
-						<time dateTime={publishedAt}>
-							{new Date(publishedAt).toDateString()}
-						</time>
-					</Course>
-				)
-			)}
-		</Wrapper>
+		<Courses courses={courses} strapi_url={String(strapi_url)} />
 	</>
 );
 

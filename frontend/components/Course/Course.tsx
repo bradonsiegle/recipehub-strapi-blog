@@ -3,6 +3,8 @@ import Image, { ImageProps } from 'next/image';
 import Link from 'next/link';
 import styled from '@emotion/styled';
 
+import { Course as CourseType } from '@/types';
+
 import { boxShadow, borderRadius } from '../styles';
 import { StyledLink } from '@/components/StyledLink';
 
@@ -55,3 +57,47 @@ export const Wrapper = styled.div`
 	gap: 2vmin;
 	margin: 2vh 1vw;
 `;
+
+export const Courses: FC<{ courses: CourseType[]; strapi_url: string }> = ({
+	courses,
+	strapi_url,
+}) => (
+	<Wrapper>
+		{courses?.map(
+			({
+				id,
+				attributes: {
+					header,
+					subtitle,
+					publishedAt,
+					cover: {
+						data: {
+							attributes: {
+								formats: {
+									medium: { url, width, height },
+								},
+							},
+						},
+					},
+				},
+			}) => (
+				<Course
+					key={id}
+					header={header}
+					link={`/course/${id}`}
+					imageProps={{
+						width,
+						height,
+						alt: `Cover for ${header}`,
+						src: `${strapi_url}${url}`,
+					}}
+				>
+					<h3>{subtitle}</h3>
+					<time dateTime={publishedAt}>
+						{new Date(publishedAt).toDateString()}
+					</time>
+				</Course>
+			)
+		)}
+	</Wrapper>
+);
