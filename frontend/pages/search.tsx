@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
@@ -53,6 +53,36 @@ const Header = styled.h3`
 	padding: 0 2vmin;
 `;
 
+export const getServersideProps: GetServerSideProps = async (context) => {
+	const q = (context?.query?.q as string) || null;
+
+	if (!q) {
+		return {
+			props: {
+				courses: [],
+			},
+		};
+	}
+
+	const { data, error }: CoursesResponse = await fetchCourses(q);
+
+	const status = error?.status;
+
+	if (status && (status < 200 || status >= 300)) {
+		return {
+			props: {
+				error: error?.message,
+			},
+		};
+	}
+
+	return {
+		props: {
+			courses: data,
+		},
+	};
+};
+
 const headerRender = (q: string, courses?: CourseType[], error?: string) => {
 	if (error) {
 		return error;
@@ -64,12 +94,15 @@ const headerRender = (q: string, courses?: CourseType[], error?: string) => {
 
 const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-const Search: NextPage = () => {
+const Search: NextPage<{ courses: CourseType[]; error?: string }> = ({
+	courses: ssrCourses,
+	error: ssrError,
+}) => {
 	const router = useRouter();
 	const { q } = router.query;
 
-	const [courses, setCourses] = useState<CourseType[] | undefined>();
-	const [error, setError] = useState<string | undefined>();
+	const [courses, setCourses] = useState<CourseType[] | undefined>(ssrCourses);
+	const [error, setError] = useState<string | undefined>(ssrError);
 
 	useEffect(() => {
 		const fetchData = async () => {
