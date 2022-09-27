@@ -6,7 +6,10 @@ import Login from '@/pages/login';
 
 jest.mock('next/router', () => ({
 	...jest.requireActual('next/router'),
-	useRouter: jest.fn(),
+	useRouter: jest.fn().mockReturnValue({
+		query: {},
+		push: jest.fn(),
+	}),
 }));
 
 describe('Login page', () => {
