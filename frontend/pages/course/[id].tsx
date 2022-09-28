@@ -50,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const likeAction = () => {
+const likeAction = (id: number) => {
   console.log(`Like action for course`);
 };
 
@@ -142,9 +142,12 @@ const CoursePage: NextPage<{
             <CustomLink>Original Recipe</CustomLink>
           </Link>
 
-          <IconButton name="Home" size={1} onClick={likeAction}>
-            Buy Now
-          </IconButton>
+          <IconButton
+            name="Home"
+            onClick={() => {
+              console.log(id);
+            }}
+          />
         </CenteredTile>
       </>
     );
