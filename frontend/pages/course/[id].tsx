@@ -6,6 +6,10 @@ import styled from "@emotion/styled";
 import MarkdownIt from "markdown-it";
 import { IconButton } from "@/components/IconButton";
 
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "@/store";
+import { actions } from "@/services/userSlice";
+
 import { Course as CourseType, Response } from "@/types";
 import { CenteredTile } from "@/components/Tile";
 import { StyledLink } from "@/components/StyledLink";
@@ -97,6 +101,12 @@ const CoursePage: NextPage<{
   meta: CourseResponse["meta"];
 }> = ({ course }) => {
   if (course && course?.attributes) {
+    const dispatch = useDispatch<AppDispatch>();
+
+    const { likes } = useSelector<RootState, RootState["user"]>(
+      (state) => state.user
+    );
+
     const {
       id,
       attributes: {
@@ -145,7 +155,11 @@ const CoursePage: NextPage<{
           <IconButton
             name="Home"
             onClick={() => {
-              console.log(id);
+              if (likes.includes(id)) {
+                dispatch(actions.unlike(id));
+              } else {
+                dispatch(actions.like(id));
+              }
             }}
           />
         </CenteredTile>
