@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "@/store";
 import { FC, useState, useEffect, useLayoutEffect, ChangeEvent } from "react";
 import { IconButton } from "@/components/IconButton";
 import { StyledLink } from "../StyledLink";
+import Image from "next/image";
 import { ThemeProvider } from "@emotion/react";
 import { Themes } from "@/styles/themes";
 import { login, selectUser } from "@/services/userSlice";
@@ -33,12 +34,19 @@ export const Layout: FC<Props> = ({ children }) => {
 
   const { username } = useSelector<RootState, RootState["user"]>(selectUser);
 
+  const darkIcon =
+    "https://res.cloudinary.com/dxpt2kzgn/image/upload/v1664330144/images/logo_white_aafccv.png";
+  const lightIcon =
+    "https://res.cloudinary.com/dxpt2kzgn/image/upload/v1664330095/images/logo_black_tqzpce.png";
+
   const [isDark, setIsDark] = useState(true);
+  const [isDarkIcon, setIsDarkIcon] = useState(lightIcon);
   const dispatch = useDispatch<AppDispatch>();
 
   const toggleDark = () => {
     localStorage.setItem("theme", isDark ? "light" : "dark");
     setIsDark(!isDark);
+    setIsDarkIcon(isDark ? lightIcon : darkIcon);
   };
 
   useIsomorphicLayoutEffect(() => {
@@ -82,8 +90,7 @@ export const Layout: FC<Props> = ({ children }) => {
         <Link href="/" passHref>
           <LogoLink>
             <StyledLogo size={3}>
-              <span className="logo_short">CBOX</span>
-              <span className="logo_long">CoursesBox</span>
+              <Image src={isDarkIcon} alt="logo" width={199} height={34} />
             </StyledLogo>
           </LogoLink>
         </Link>
@@ -100,7 +107,7 @@ export const Layout: FC<Props> = ({ children }) => {
         </MainNav>
         <SearchInput
           icon="Search"
-          placeholder="Search"
+          placeholder="Find a recipe"
           value={query}
           onChange={searchChange}
         />

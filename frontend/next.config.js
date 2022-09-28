@@ -7,6 +7,7 @@ const nextConfig = {
 			'localhost:1337',
 			'localhost',
 			'coursesbox-production.up.railway.app',
+			'res.cloudinary.com',
 		],
 	},
 };

@@ -1,10 +1,15 @@
 import type { NextPage, GetStaticProps } from "next";
 import Head from "next/head";
 import { Course as CourseType, Response } from "@/types";
-
+import styled from "@emotion/styled";
 import { Courses } from "@/components/Course";
 
 type CoursesResponse = Response<CourseType[]>;
+
+const Heading = styled.h2`
+  text-align: center;
+  margin-bottom: 2rem;
+`;
 
 export const getStaticProps: GetStaticProps = async () => {
   const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
@@ -40,10 +45,11 @@ const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
 const Home: NextPage<{ courses: CourseType[] }> = ({ courses }) => (
   <>
     <Head>
-      <title>CoursesBox</title>
+      <title>RecipeHub</title>
       <meta name="description" content="IT courses for everyone" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
+    <Heading>What we're cooking:</Heading>
     <Courses courses={courses} strapi_url={String(strapi_url)} />
   </>
 );

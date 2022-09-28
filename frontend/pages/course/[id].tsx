@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import MarkdownIt from "markdown-it";
+import { IconButton } from "@/components/IconButton";
 
 import { Course as CourseType, Response } from "@/types";
 import { CenteredTile } from "@/components/Tile";
@@ -18,7 +19,6 @@ const ImageContainer = styled.div<{ maxWidth: string }>`
 
 const CustomLink = styled(StyledLink)`
   text-decoration: underline;
-  font-size: 2rem;
 `;
 
 type CourseResponse = Response<CourseType>;
@@ -48,6 +48,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths,
     fallback: true,
   };
+};
+
+const likeAction = () => {
+  console.log(`Like action for course`);
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -94,6 +98,7 @@ const CoursePage: NextPage<{
 }> = ({ course }) => {
   if (course && course?.attributes) {
     const {
+      id,
       attributes: {
         header,
         link,
@@ -126,17 +131,20 @@ const CoursePage: NextPage<{
               objectFit="contain"
             />
           </ImageContainer>
-          <Link href={link} passHref>
-            <CustomLink>Enroll now!</CustomLink>
-          </Link>
+
           <div
             style={{ maxWidth: width }}
             dangerouslySetInnerHTML={{ __html: description }}
           />
-          <Link href={link} passHref>
-            <CustomLink>Enroll now!</CustomLink>
-          </Link>
           <h4>{new Date(publishedAt).toDateString()}</h4>
+
+          <Link href={link} passHref>
+            <CustomLink>Original Recipe</CustomLink>
+          </Link>
+
+          <IconButton name="Home" size={1} onClick={likeAction}>
+            Buy Now
+          </IconButton>
         </CenteredTile>
       </>
     );

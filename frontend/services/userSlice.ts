@@ -10,6 +10,7 @@ export type UserState = {
 	jwt: string;
 	username: string;
 	email: string;
+	likes: number[];
 	requestState?: RequestState;
 	error?: SerializedError;
 };
@@ -39,12 +40,20 @@ export const initialState: UserState = {
 	jwt: '',
 	username: '',
 	email: '',
+	likes: [],
 };
 
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
-	reducers: {},
+	reducers: {
+		like: (state, action: PayloadAction<number>) => {
+			state.likes.push(action.payload);
+		},
+		unlike: (state, action: PayloadAction<number>) => {
+			state.likes = state.likes.filter((id) => id !== action.payload);
+		},
+	},
 	extraReducers: (builder) => {
 		//logout flow
 		builder.addCase(logout.fulfilled, () => initialState);
