@@ -18,7 +18,7 @@ const ImageContainer = styled.div<{ maxWidth: string }>`
   position: relative;
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
-  height: 30vw;
+  height: 50vw;
 `;
 
 const CustomLink = styled(StyledLink)`
@@ -118,7 +118,7 @@ const CoursePage: NextPage<{
           data: {
             attributes: {
               formats: {
-                large: { url, width },
+                large: { url, width, height },
               },
             },
           },
@@ -138,30 +138,29 @@ const CoursePage: NextPage<{
               layout="fill"
               alt={`Cover for ${header}`}
               src={`${strapi_url}${url}`}
-              objectFit="contain"
+              objectFit="cover"
             />
           </ImageContainer>
-
+          <div>
+            <IconButton
+              name="Home"
+              onClick={() => {
+                if (likes.includes(id)) {
+                  dispatch(actions.unlike(id));
+                } else {
+                  dispatch(actions.like(id));
+                }
+              }}
+            />
+          </div>
           <div
             style={{ maxWidth: width }}
             dangerouslySetInnerHTML={{ __html: description }}
           />
           <h4>{new Date(publishedAt).toDateString()}</h4>
-
           <Link href={link} passHref>
             <CustomLink>Original Recipe</CustomLink>
           </Link>
-
-          <IconButton
-            name="Home"
-            onClick={() => {
-              if (likes.includes(id)) {
-                dispatch(actions.unlike(id));
-              } else {
-                dispatch(actions.like(id));
-              }
-            }}
-          />
         </CenteredTile>
       </>
     );
