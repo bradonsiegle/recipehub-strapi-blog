@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import MarkdownIt from "markdown-it";
-import { IconButton } from "@/components/IconButton";
+import { Button } from "@/components/Button";
+import { LikeButton } from "@/components/IconButton/LikeButton";
 
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/store";
@@ -19,6 +20,9 @@ const ImageContainer = styled.div<{ maxWidth: string }>`
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
   height: 50vw;
+  @media (min-width: 768px) {
+    height: 20vw;
+  }
 `;
 
 const CustomLink = styled(StyledLink)`
@@ -141,9 +145,12 @@ const CoursePage: NextPage<{
               objectFit="cover"
             />
           </ImageContainer>
+
           <div>
-            <IconButton
-              name="Home"
+            <LikeButton
+              name="BiBookmarkHeart"
+              size={1}
+              isLiked={likes.includes(id)}
               onClick={() => {
                 if (likes.includes(id)) {
                   dispatch(actions.unlike(id));
@@ -153,6 +160,7 @@ const CoursePage: NextPage<{
               }}
             />
           </div>
+
           <div
             style={{ maxWidth: width }}
             dangerouslySetInnerHTML={{ __html: description }}
