@@ -11,6 +11,8 @@ export type TileProps = {
 
 const Section = styled.section`
   ${borderRadius};
+  width: 100%;
+  max-width: 90vw;
   padding: 1vmin 4vmin 4vmin;
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.font.regular};
