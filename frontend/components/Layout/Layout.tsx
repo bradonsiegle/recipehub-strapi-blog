@@ -95,6 +95,10 @@ export const Layout: FC<Props> = ({ children }) => {
           </LogoLink>
         </Link>
         <MainNav>
+          <Link href="/likes" passHref>
+            <StyledLink>My likes</StyledLink>
+          </Link>
+
           <Link href={username ? "/user" : "/login"} passHref>
             <IconButton name={username ? "User" : "Login"} size={1} />
           </Link>
