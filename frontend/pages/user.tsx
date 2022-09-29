@@ -10,12 +10,11 @@ import { selectUser, logout } from "@/services/userSlice";
 const User: NextPage = () => {
   const router = useRouter();
 
-  const { username, email, error, likes } = useSelector<
-    RootState,
-    RootState["user"]
-  >(selectUser);
-
   const dispatch = useDispatch<AppDispatch>();
+
+  const { username, email, error } = useSelector<RootState, RootState["user"]>(
+    selectUser
+  );
 
   useEffect(() => {
     if (!username || Boolean(error)) {
@@ -30,17 +29,11 @@ const User: NextPage = () => {
   };
 
   return username && email ? (
-    <>
-      <CenteredTile header="Profile">
-        <h3>Username: {username}</h3>
-        <h3>Email: {email}</h3>
-        <Button onClick={logoutHandler}>Logout</Button>
-      </CenteredTile>
-      <CenteredTile header="Liked Recipes">
-        <h3>ID {likes}</h3>
-        <Button onClick={logoutHandler}>Logout</Button>
-      </CenteredTile>
-    </>
+    <CenteredTile header="Profile">
+      <h3>Username: {username}</h3>
+      <h3>Email: {email}</h3>
+      <Button onClick={logoutHandler}>Logout</Button>
+    </CenteredTile>
   ) : null;
 };
 
