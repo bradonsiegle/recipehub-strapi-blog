@@ -15,6 +15,7 @@ const updatedState = {
 	jwt: mockUser.jwt,
 	username: mockUser.user.username,
 	email: mockUser.user.email,
+	likes: [],
 };
 
 const loginData = {
@@ -135,6 +136,7 @@ describe('User slice', () => {
 					jwt: '',
 					username: '',
 					email: '',
+					likes: [],
 					...RegistrationError,
 					requestState: 'rejected',
 				},
