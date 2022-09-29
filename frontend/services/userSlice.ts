@@ -49,9 +49,11 @@ export const userSlice = createSlice({
 	reducers: {
 		like: (state, action: PayloadAction<number>) => {
 			state.likes.push(action.payload);
+			localStorage.setItem('likes', JSON.stringify(state.likes));
 		},
 		unlike: (state, action: PayloadAction<number>) => {
 			state.likes = state.likes.filter((id) => id !== action.payload);
+			localStorage.setItem('likes', JSON.stringify(state.likes));
 		},
 	},
 	extraReducers: (builder) => {
@@ -80,7 +82,6 @@ export const userSlice = createSlice({
 				(state, { payload }) => {
 					const payloadError = (payload as { error: SerializedError })?.error;
 					state.error = payloadError;
-
 					state.requestState = 'rejected';
 				}
 			);
