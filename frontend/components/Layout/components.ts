@@ -42,17 +42,6 @@ export const StyledLogo = styled(Logo)`
   align-items: center;
   height: 4rem;
   justify-content: flex-start;
-  & .logo_long {
-    display: none;
-  }
-  @media (min-width: 560px) {
-    & .logo_long {
-      display: inline;
-    }
-    & .logo_short {
-      display: none;
-    }
-  }
 `;
 
 export const MainNav = styled.nav`
