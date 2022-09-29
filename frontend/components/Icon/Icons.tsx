@@ -1,3 +1,5 @@
+import { BiBookmarkHeart } from "react-icons/bi";
+
 const User = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 1024 1024"
@@ -98,4 +100,13 @@ const Login = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const Icons = { User, Moon, Sun, Home, Settings, Search, Login };
+export const Icons = {
+  User,
+  Moon,
+  Sun,
+  Home,
+  Settings,
+  Search,
+  Login,
+  BiBookmarkHeart,
+};
