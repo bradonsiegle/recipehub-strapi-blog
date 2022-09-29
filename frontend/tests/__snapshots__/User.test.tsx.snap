@@ -10,24 +10,61 @@ exports[`User page Load user 1`] = `
       href="/"
     >
       <header
-        class="css-kw51db"
+        class="css-lnfxpm"
         size="3"
       >
         <span
-          class="logo_short"
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >
-          CBOX
-        </span>
-        <span
-          class="logo_long"
-        >
-          CoursesBox
+          <span
+            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27199%27%20height=%2734%27/%3e"
+              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+            />
+          </span>
+          <img
+            alt="logo"
+            data-nimg="intrinsic"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+          <noscript />
         </span>
       </header>
     </a>
     <nav
       class="css-1sstk05"
     >
+      <button
+        class="css-dujfmn"
+        title="BiBookmarkHeart"
+      >
+        <svg
+          aria-label="BiBookmarkHeart"
+          class="css-z3g3v6"
+          fill="currentColor"
+          height="1em"
+          href="/likes"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 22V4c0-1.103-.897-2-2-2H6c-1.103 0-2 .897-2 2v18l8-4.572L20 22zM6 10V4h12v14.553l-6-3.428-6 3.428V10z"
+          />
+          <path
+            d="M15.409 9.512c.361-.372.585-.888.585-1.456s-.223-1.083-.585-1.456a1.962 1.962 0 0 0-1.412-.603S13.001 5.994 12 7.026c-1.001-1.032-1.997-1.029-1.997-1.029-.552 0-1.051.23-1.412.603-.362.373-.585.887-.585 1.456s.223 1.084.585 1.456L12 13.203l3.409-3.691z"
+          />
+        </svg>
+      </button>
       <button
         class="css-dujfmn"
         title="User"
@@ -83,7 +120,7 @@ exports[`User page Load user 1`] = `
       >
         <input
           class="css-1bj11r8"
-          placeholder="Search"
+          placeholder="Find a recipe"
           value=""
         />
         <svg
@@ -115,7 +152,7 @@ exports[`User page Load user 1`] = `
         class="css-xlq2o8"
       >
         <section
-          class="css-agu7af"
+          class="css-a3vn3b"
         >
           <h2>
             Profile
@@ -158,24 +195,61 @@ exports[`User page Render check 1`] = `
       href="/"
     >
       <header
-        class="css-kw51db"
+        class="css-lnfxpm"
         size="3"
       >
         <span
-          class="logo_short"
+          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >
-          CBOX
-        </span>
-        <span
-          class="logo_long"
-        >
-          CoursesBox
+          <span
+            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27199%27%20height=%2734%27/%3e"
+              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+            />
+          </span>
+          <img
+            alt="logo"
+            data-nimg="intrinsic"
+            decoding="async"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          />
+          <noscript />
         </span>
       </header>
     </a>
     <nav
       class="css-1sstk05"
     >
+      <button
+        class="css-dujfmn"
+        title="BiBookmarkHeart"
+      >
+        <svg
+          aria-label="BiBookmarkHeart"
+          class="css-z3g3v6"
+          fill="currentColor"
+          height="1em"
+          href="/likes"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 22V4c0-1.103-.897-2-2-2H6c-1.103 0-2 .897-2 2v18l8-4.572L20 22zM6 10V4h12v14.553l-6-3.428-6 3.428V10z"
+          />
+          <path
+            d="M15.409 9.512c.361-.372.585-.888.585-1.456s-.223-1.083-.585-1.456a1.962 1.962 0 0 0-1.412-.603S13.001 5.994 12 7.026c-1.001-1.032-1.997-1.029-1.997-1.029-.552 0-1.051.23-1.412.603-.362.373-.585.887-.585 1.456s.223 1.084.585 1.456L12 13.203l3.409-3.691z"
+          />
+        </svg>
+      </button>
       <button
         class="css-dujfmn"
         title="User"
@@ -231,7 +305,7 @@ exports[`User page Render check 1`] = `
       >
         <input
           class="css-1bj11r8"
-          placeholder="Search"
+          placeholder="Find a recipe"
           value=""
         />
         <svg
@@ -263,7 +337,7 @@ exports[`User page Render check 1`] = `
         class="css-xlq2o8"
       >
         <section
-          class="css-agu7af"
+          class="css-a3vn3b"
         >
           <h2>
             Profile
