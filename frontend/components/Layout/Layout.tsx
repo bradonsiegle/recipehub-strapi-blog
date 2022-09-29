@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { FC, useState, useEffect, useLayoutEffect, ChangeEvent } from "react";
-import { IconButton } from "@/components/IconButton";
+import { IconButton, LikeButton } from "@/components/IconButton";
+import { Button } from "@/components/Button";
 import { StyledLink } from "../StyledLink";
 import Image from "next/image";
 import { ThemeProvider } from "@emotion/react";
@@ -96,7 +97,7 @@ export const Layout: FC<Props> = ({ children }) => {
         </Link>
         <MainNav>
           <Link href="/likes" passHref>
-            <StyledLink>My likes</StyledLink>
+            <IconButton name="BiBookmarkHeart" size={1} />
           </Link>
 
           <Link href={username ? "/user" : "/login"} passHref>
