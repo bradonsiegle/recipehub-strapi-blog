@@ -104,6 +104,12 @@ const CoursePage: NextPage<{
   course: CourseType;
   meta: CourseResponse["meta"];
 }> = ({ course }) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { likes } = useSelector<RootState, RootState["user"]>(
+    (state) => state.user
+  );
+
   if (course && course?.attributes) {
     const {
       id,
@@ -123,11 +129,7 @@ const CoursePage: NextPage<{
         },
       },
     } = course;
-    const dispatch = useDispatch<AppDispatch>();
 
-    const { likes } = useSelector<RootState, RootState["user"]>(
-      (state) => state.user
-    );
     return (
       <>
         <Head>
