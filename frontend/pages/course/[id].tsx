@@ -100,12 +100,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-const dispatch = useDispatch<AppDispatch>();
-
-const { likes } = useSelector<RootState, RootState["user"]>(
-  (state) => state.user
-);
-
 const CoursePage: NextPage<{
   course: CourseType;
   meta: CourseResponse["meta"];
@@ -129,6 +123,11 @@ const CoursePage: NextPage<{
         },
       },
     } = course;
+    const dispatch = useDispatch<AppDispatch>();
+
+    const { likes } = useSelector<RootState, RootState["user"]>(
+      (state) => state.user
+    );
     return (
       <>
         <Head>
