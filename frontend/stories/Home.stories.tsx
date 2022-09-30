@@ -11,6 +11,6 @@ export default {
 export const HomePage = () => (
 	<Home
 		courses={response.data as unknown as Course[]}
-		featuredCourse={response.data as unknown as Course}
+		featuredCourse={response.data[0] as unknown as Course}
 	/>
 );
