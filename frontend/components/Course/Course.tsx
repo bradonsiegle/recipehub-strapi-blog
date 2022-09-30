@@ -54,8 +54,12 @@ export const Course: FC<Props> = ({ children, header, link, imageProps }) => (
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 2vmin;
-  margin: 2vh 1vw;
+  @media (min-width: 900px) {
+    flex-wrap: nowrap;
+  }
+  justify-content: center;
+  gap: 3vmin;
+  margin: 2vh 2vw;
 `;
 
 export const Courses: FC<{ courses: CourseType[]; strapi_url: string }> = ({
