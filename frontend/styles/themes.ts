@@ -41,7 +41,7 @@ const light: AppTheme = {
 		warning: '#ffca2ce6;',
 	},
 	font: {
-		regular: '#504e55e6',
+		regular: 'rgba(0,0,0,.75)',
 		button: '#E4EBF5e6',
 		placeholder: '#504e55e6',
 		warning: '#504e55e6',
