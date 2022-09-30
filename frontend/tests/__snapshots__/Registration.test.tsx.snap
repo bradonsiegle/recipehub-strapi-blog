@@ -38,7 +38,7 @@ exports[`Registration page Render check 1`] = `
       class="css-xlq2o8"
     >
       <section
-        class="css-a3vn3b"
+        class="css-vpzuu8"
       >
         <h2>
           Create an account
@@ -47,7 +47,7 @@ exports[`Registration page Render check 1`] = `
            
         </h3>
         <label
-          class="css-58qgct"
+          class="css-1805hjr"
           height="7"
           width="20"
         >
@@ -60,7 +60,7 @@ exports[`Registration page Render check 1`] = `
             class="css-52ovgc"
           >
             <input
-              class="css-1bj11r8"
+              class="css-1xhyq1j"
               name="username"
               placeholder="username"
             />
@@ -73,7 +73,7 @@ exports[`Registration page Render check 1`] = `
           </span>
         </label>
         <label
-          class="css-58qgct"
+          class="css-1805hjr"
           height="7"
           width="20"
         >
@@ -86,7 +86,7 @@ exports[`Registration page Render check 1`] = `
             class="css-52ovgc"
           >
             <input
-              class="css-1bj11r8"
+              class="css-1xhyq1j"
               name="email"
               placeholder="email"
               type="email"
@@ -100,7 +100,7 @@ exports[`Registration page Render check 1`] = `
           </span>
         </label>
         <label
-          class="css-58qgct"
+          class="css-1805hjr"
           height="7"
           width="20"
         >
@@ -113,7 +113,7 @@ exports[`Registration page Render check 1`] = `
             class="css-52ovgc"
           >
             <input
-              class="css-1bj11r8"
+              class="css-1xhyq1j"
               name="password"
               placeholder="password"
               role="textbox"
@@ -138,7 +138,7 @@ exports[`Registration page Render check 1`] = `
           Already have an account?
            
           <a
-            class="css-pm0vza"
+            class="css-137tmhu"
             href="/login"
           >
             Login

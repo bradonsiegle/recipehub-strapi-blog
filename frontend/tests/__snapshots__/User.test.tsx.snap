@@ -3,10 +3,10 @@
 exports[`User page Load user 1`] = `
 <div>
   <div
-    class="css-u0jlnf"
+    class="css-1stdm9q"
   >
     <a
-      class="css-4w3zwj"
+      class="css-gbuggf"
       href="/"
     >
       <header
@@ -46,7 +46,7 @@ exports[`User page Load user 1`] = `
       >
         <svg
           aria-label="BiBookmarkHeart"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1em"
           href="/likes"
@@ -71,7 +71,7 @@ exports[`User page Load user 1`] = `
       >
         <svg
           aria-label="User"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1rem"
           href="/user"
@@ -90,7 +90,7 @@ exports[`User page Load user 1`] = `
       >
         <svg
           aria-label="Moon"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1rem"
           role="img"
@@ -108,7 +108,7 @@ exports[`User page Load user 1`] = `
       </button>
     </nav>
     <label
-      class="css-fabfz"
+      class="css-153eln6"
       height="7"
       width="20"
     >
@@ -119,14 +119,14 @@ exports[`User page Load user 1`] = `
         class="css-52ovgc"
       >
         <input
-          class="css-1bj11r8"
+          class="css-1xhyq1j"
           placeholder="Find a recipe"
           value=""
         />
         <svg
           aria-hidden="true"
           aria-label="Search"
-          class="css-1ry70u6"
+          class="css-153tpqd"
           data-icon="search"
           fill="currentColor"
           focusable="false"
@@ -152,7 +152,7 @@ exports[`User page Load user 1`] = `
         class="css-xlq2o8"
       >
         <section
-          class="css-a3vn3b"
+          class="css-vpzuu8"
         >
           <h2>
             Profile
@@ -188,10 +188,10 @@ exports[`User page Load user 1`] = `
 exports[`User page Render check 1`] = `
 <div>
   <div
-    class="css-u0jlnf"
+    class="css-1stdm9q"
   >
     <a
-      class="css-4w3zwj"
+      class="css-gbuggf"
       href="/"
     >
       <header
@@ -231,7 +231,7 @@ exports[`User page Render check 1`] = `
       >
         <svg
           aria-label="BiBookmarkHeart"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1em"
           href="/likes"
@@ -256,7 +256,7 @@ exports[`User page Render check 1`] = `
       >
         <svg
           aria-label="User"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1rem"
           href="/user"
@@ -275,7 +275,7 @@ exports[`User page Render check 1`] = `
       >
         <svg
           aria-label="Moon"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1rem"
           role="img"
@@ -293,7 +293,7 @@ exports[`User page Render check 1`] = `
       </button>
     </nav>
     <label
-      class="css-fabfz"
+      class="css-153eln6"
       height="7"
       width="20"
     >
@@ -304,14 +304,14 @@ exports[`User page Render check 1`] = `
         class="css-52ovgc"
       >
         <input
-          class="css-1bj11r8"
+          class="css-1xhyq1j"
           placeholder="Find a recipe"
           value=""
         />
         <svg
           aria-hidden="true"
           aria-label="Search"
-          class="css-1ry70u6"
+          class="css-153tpqd"
           data-icon="search"
           fill="currentColor"
           focusable="false"
@@ -337,7 +337,7 @@ exports[`User page Render check 1`] = `
         class="css-xlq2o8"
       >
         <section
-          class="css-a3vn3b"
+          class="css-vpzuu8"
         >
           <h2>
             Profile

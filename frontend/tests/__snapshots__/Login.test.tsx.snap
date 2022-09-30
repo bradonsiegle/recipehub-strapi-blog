@@ -3,10 +3,10 @@
 exports[`Login page should render 1`] = `
 <div>
   <div
-    class="css-u0jlnf"
+    class="css-1stdm9q"
   >
     <a
-      class="css-4w3zwj"
+      class="css-gbuggf"
       href="/"
     >
       <header
@@ -46,7 +46,7 @@ exports[`Login page should render 1`] = `
       >
         <svg
           aria-label="BiBookmarkHeart"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1em"
           href="/likes"
@@ -72,7 +72,7 @@ exports[`Login page should render 1`] = `
         <svg
           aria-hidden="true"
           aria-label="Login"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           data-icon="login"
           fill="currentColor"
           focusable="false"
@@ -96,7 +96,7 @@ exports[`Login page should render 1`] = `
       >
         <svg
           aria-label="Moon"
-          class="css-z3g3v6"
+          class="css-8mpkb1"
           fill="currentColor"
           height="1rem"
           role="img"
@@ -114,7 +114,7 @@ exports[`Login page should render 1`] = `
       </button>
     </nav>
     <label
-      class="css-fabfz"
+      class="css-153eln6"
       height="7"
       width="20"
     >
@@ -125,14 +125,14 @@ exports[`Login page should render 1`] = `
         class="css-52ovgc"
       >
         <input
-          class="css-1bj11r8"
+          class="css-1xhyq1j"
           placeholder="Find a recipe"
           value=""
         />
         <svg
           aria-hidden="true"
           aria-label="Search"
-          class="css-1ry70u6"
+          class="css-153tpqd"
           data-icon="search"
           fill="currentColor"
           focusable="false"
@@ -159,7 +159,7 @@ exports[`Login page should render 1`] = `
           class="css-xlq2o8"
         >
           <section
-            class="css-a3vn3b"
+            class="css-vpzuu8"
           >
             <h2>
               Login
@@ -168,7 +168,7 @@ exports[`Login page should render 1`] = `
                
             </h3>
             <label
-              class="css-10bmm8i"
+              class="css-1dqok13"
               height="8"
               width="20"
             >
@@ -181,7 +181,7 @@ exports[`Login page should render 1`] = `
                 class="css-52ovgc"
               >
                 <input
-                  class="css-1bj11r8"
+                  class="css-1xhyq1j"
                   name="identifier"
                   placeholder="Username or Email"
                 />
@@ -194,7 +194,7 @@ exports[`Login page should render 1`] = `
               </span>
             </label>
             <label
-              class="css-10bmm8i"
+              class="css-1dqok13"
               height="8"
               width="20"
             >
@@ -207,7 +207,7 @@ exports[`Login page should render 1`] = `
                 class="css-52ovgc"
               >
                 <input
-                  class="css-1bj11r8"
+                  class="css-1xhyq1j"
                   name="password"
                   placeholder="Password"
                   role="textbox"
@@ -230,7 +230,7 @@ exports[`Login page should render 1`] = `
             </button>
             <h3>
               <a
-                class="css-pm0vza"
+                class="css-137tmhu"
                 href="/registration"
               >
                 Create Account
