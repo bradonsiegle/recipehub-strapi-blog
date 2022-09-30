@@ -49,7 +49,7 @@ const Home: NextPage<{ courses: CourseType[] }> = ({ courses }) => (
       <meta name="description" content="IT courses for everyone" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <Heading>What we're cooking:</Heading>
+    <Heading>All recipes:</Heading>
     <Courses courses={courses} strapi_url={String(strapi_url)} />
   </>
 );

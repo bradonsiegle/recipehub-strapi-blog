@@ -53,7 +53,7 @@ const Header = styled.h3`
   padding: 0 2vmin;
 `;
 
-export const getServersideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const q = (context?.query?.q as string) || null;
 
   if (!q) {
