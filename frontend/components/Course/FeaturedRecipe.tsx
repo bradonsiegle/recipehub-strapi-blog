@@ -30,9 +30,9 @@ const CourseLink = styled(StyledLink)`
 `;
 
 const StyledHeader = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 500;
   text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
 `;
 
 interface Props {
@@ -54,8 +54,9 @@ export const FeaturedRecipe: FC<Props> = ({
   <Link href={link} passHref>
     <CourseLink>
       <Section>
-        <StyledHeader>{header}</StyledHeader>
         <Image {...imageProps} alt={header} />
+        <StyledHeader>{header}</StyledHeader>
+
         {children}
       </Section>
     </CourseLink>
