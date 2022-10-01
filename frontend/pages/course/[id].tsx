@@ -122,7 +122,7 @@ const CoursePage: NextPage<{
           data: {
             attributes: {
               formats: {
-                large: { url, width, height },
+                medium: { url, width, height },
               },
             },
           },
