@@ -15,7 +15,6 @@ const Section = styled.section`
   max-width: 90vw;
   padding: 2vmin 4vmin 4vmin;
   background: ${({ theme }) => theme.background};
-
   color: ${({ theme }) => theme.font.regular};
   ${({ theme }) =>
     boxShadow(theme.components.shadow1, theme.components.shadow2)};
