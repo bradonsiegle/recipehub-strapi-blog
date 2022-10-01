@@ -34,6 +34,7 @@ export const Wrapper = styled.div`
 
 export const LogoLink = styled(StyledLink)`
   padding-right: 1vw;
+  padding-left: 2vw;
 `;
 
 export const StyledLogo = styled(Logo)`

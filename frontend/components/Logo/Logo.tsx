@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 export type LogoProps = { /** Logo size in rem */ size?: number };
 
 export const Logo = styled.header<LogoProps>`
-  font-family: Monoton;
+  font-family: "Playfair Display", serif;
   font-size: ${({ size = 3 }) => `${size}rem`};
   ${({ theme, size = 3 }) => {
     return css`

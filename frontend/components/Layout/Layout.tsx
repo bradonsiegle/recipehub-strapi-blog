@@ -90,8 +90,8 @@ export const Layout: FC<Props> = ({ children }) => {
       <Wrapper>
         <Link href="/" passHref>
           <LogoLink>
-            <StyledLogo size={3}>
-              <Image src={isDarkIcon} alt="logo" width={199} height={34} />
+            <StyledLogo size={1.4}>
+              <h2>RecipeHub</h2>
             </StyledLogo>
           </LogoLink>
         </Link>

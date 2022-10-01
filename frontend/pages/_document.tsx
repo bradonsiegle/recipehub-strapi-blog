@@ -20,7 +20,7 @@ export default function Document() {
       <Head>
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Poppins|Monoton&display=swap"
+          href="https://fonts.googleapis.com/css?family=Poppins|Playfair+Display&display=swap"
         />
         <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
         <Global styles={GlobalStyles} />
