@@ -23,7 +23,8 @@ const Section = styled.section`
 
 const CourseLink = styled(StyledLink)`
   display: flex;
-  width: 94vw;
+  justify-content: center;
+  width: 90vw;
   @media (min-width: 900px) {
     width: 46vw;
   }
