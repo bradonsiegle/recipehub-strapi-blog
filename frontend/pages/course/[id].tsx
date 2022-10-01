@@ -16,7 +16,8 @@ import { CenteredTile } from "@/components/Tile";
 import { StyledLink } from "@/components/StyledLink";
 
 const ImageContainer = styled.div<{ maxWidth: string }>`
-  position: relative;
+  display: flex;
+  margin-bottom: 2rem;
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
   height: 50vw;
@@ -140,9 +141,11 @@ const CoursePage: NextPage<{
         <CenteredTile header={header}>
           <ImageContainer maxWidth={`${width}px`}>
             <Image
-              layout="fill"
               alt={`Cover for ${header}`}
               src={`${strapi_url}${url}`}
+              width={width}
+              height={height}
+              // layout="fill"
               objectFit="cover"
             />
           </ImageContainer>
@@ -163,7 +166,7 @@ const CoursePage: NextPage<{
           </div>
 
           <div
-            style={{ maxWidth: width }}
+            style={{ maxWidth: width, marginTop: "1rem" }}
             dangerouslySetInnerHTML={{ __html: description }}
           />
           <h4>{new Date(publishedAt).toDateString()}</h4>
