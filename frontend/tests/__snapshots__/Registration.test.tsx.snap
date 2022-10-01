@@ -60,7 +60,7 @@ exports[`Registration page Render check 1`] = `
             class="css-52ovgc"
           >
             <input
-              class="css-1xhyq1j"
+              class="css-9em8xk"
               name="username"
               placeholder="username"
             />
@@ -86,7 +86,7 @@ exports[`Registration page Render check 1`] = `
             class="css-52ovgc"
           >
             <input
-              class="css-1xhyq1j"
+              class="css-9em8xk"
               name="email"
               placeholder="email"
               type="email"
@@ -113,7 +113,7 @@ exports[`Registration page Render check 1`] = `
             class="css-52ovgc"
           >
             <input
-              class="css-1xhyq1j"
+              class="css-9em8xk"
               name="password"
               placeholder="password"
               role="textbox"
