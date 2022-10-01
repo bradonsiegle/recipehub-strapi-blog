@@ -10,7 +10,12 @@ type CoursesResponse = Response<CourseType[]>;
 
 const Heading = styled.h2`
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+`;
+
+const Subtitle = styled.h3`
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 const StyledDiv = styled.div`
@@ -77,7 +82,7 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
           style: { borderRadius: "1rem" },
         }}
       >
-        {featuredCourse.attributes.subtitle}
+        <Subtitle>{featuredCourse.attributes.subtitle}</Subtitle>
       </FeaturedRecipe>
     </StyledDiv>
     <Heading>All recipes:</Heading>
