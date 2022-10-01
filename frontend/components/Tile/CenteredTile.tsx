@@ -13,6 +13,9 @@ const CommonStyles = css`
 const Wrapper = styled.div`
   ${CommonStyles};
   margin-top: 1rem;
+  h2 {
+    text-align: center;
+  }
 `;
 
 const StyledTile = styled(Tile)`
