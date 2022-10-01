@@ -2,24 +2,8 @@ import { FC } from "react";
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
-
-import { Course as CourseType } from "@/types";
-
 import { boxShadow, borderRadius } from "../styles";
 import { StyledLink } from "@/components/StyledLink";
-
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2vmin;
-  background: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.font.regular};
-  ${borderRadius};
-  ${({ theme }) =>
-    boxShadow(theme.components.shadow1, theme.components.shadow2)};
-`;
 
 const CourseLink = styled(StyledLink)`
   display: flex;
@@ -27,12 +11,30 @@ const CourseLink = styled(StyledLink)`
   @media (min-width: 900px) {
     width: 46vw;
   }
+  margin-bottom: 5vh;
+`;
+
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.font.regular};
+  ${borderRadius};
+  ${({ theme }) =>
+    boxShadow(theme.components.shadow1, theme.components.shadow2)};
 `;
 
 const StyledHeader = styled.h2`
   text-align: center;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  margin: 0;
+`;
+
+const StyledContent = styled.div`
+  padding: 0 6vmin;
 `;
 
 interface Props {
@@ -56,20 +58,8 @@ export const FeaturedRecipe: FC<Props> = ({
       <Section>
         <Image {...imageProps} alt={header} />
         <StyledHeader>{header}</StyledHeader>
-
-        {children}
+        <StyledContent>{children}</StyledContent>
       </Section>
     </CourseLink>
   </Link>
 );
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  @media (min-width: 900px) {
-    flex-wrap: nowrap;
-  }
-  justify-content: center;
-  gap: 3vmin;
-  margin: 2vh 2vw;
-`;
