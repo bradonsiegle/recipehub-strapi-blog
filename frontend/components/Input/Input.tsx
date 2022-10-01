@@ -60,7 +60,7 @@ const StyledInput = styled.input`
   width: 100%;
   height: 100%;
   border-radius: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   padding: 0 2.6rem 0 1.4rem;
   color: ${({ theme }) => theme.font.regular};
   ${({ theme }) =>
@@ -123,7 +123,7 @@ export const Input: FC<Props & InputHTMLAttributes<HTMLInputElement>> =
         <Label>{label}</Label>
         <InputWrapper>
           <StyledInput ref={ref as ForwardedRef<HTMLInputElement>} {...rest} />
-          {icon && <StyledIcon name={icon} />}
+          {icon && <StyledIcon name={icon} size={1.6} />}
         </InputWrapper>
         <Feedback role="alert">{feedback}</Feedback>
       </Wrapper>
