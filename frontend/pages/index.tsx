@@ -13,6 +13,13 @@ const Heading = styled.h2`
   margin-bottom: 2rem;
 `;
 
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+`;
+
 export const getStaticProps: GetStaticProps = async () => {
   const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
@@ -58,24 +65,21 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
       <meta name="description" content="IT courses for everyone" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <CenteredTile header="Recipe Of The Week">
+    <StyledDiv>
       <FeaturedRecipe
         header={featuredCourse.attributes.header}
         link={`/course/${featuredCourse.id}`}
         imageProps={{
-          width:
-            featuredCourse.attributes.cover.data.attributes.formats.medium
-              .width,
-          height:
-            featuredCourse.attributes.cover.data.attributes.formats.medium
-              .height,
+          width: `${featuredCourse.attributes.cover.data.attributes.formats.medium.width}`,
+          height: `${featuredCourse.attributes.cover.data.attributes.formats.medium.height}`,
           src: `${strapi_url}${featuredCourse.attributes.cover.data.attributes.formats.medium.url}`,
           alt: `Cover for ${featuredCourse.attributes.header}`,
+          style: { borderRadius: "1rem" },
         }}
       >
         {featuredCourse.attributes.subtitle}
       </FeaturedRecipe>
-    </CenteredTile>
+    </StyledDiv>
     <Heading>All recipes:</Heading>
     <Courses courses={courses} strapi_url={String(strapi_url)} />
   </>
