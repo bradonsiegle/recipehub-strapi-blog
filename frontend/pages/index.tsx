@@ -8,9 +8,14 @@ import { FeaturedRecipe } from "@/components/Course";
 
 type CoursesResponse = Response<CourseType[]>;
 
-const Heading = styled.h2`
+const StyledHeader = styled.h2`
+  font-family: "Playfair Display", serif;
   text-align: center;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  padding: 0 0.6rem;
 `;
 
 const Subtitle = styled.h3`
@@ -85,7 +90,7 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
         <Subtitle>{featuredCourse.attributes.subtitle}</Subtitle>
       </FeaturedRecipe>
     </StyledDiv>
-    <Heading>All recipes:</Heading>
+    <StyledHeader>All recipes:</StyledHeader>
     <Courses courses={courses} strapi_url={String(strapi_url)} />
   </>
 );
