@@ -5,12 +5,12 @@ export const mockUser = {
 		username: 'John Doe',
 		email: 'john@doe.com',
 		password: 'secret',
+		courses: [],
 		provider: 'local',
 		confirmed: true,
 		blocked: false,
 		createdAt: '2022-09-16T02:18:59.517Z',
 		updatedAt: '2022-09-16T02:18:59.517Z',
-		likes: [],
 	},
 };
 
