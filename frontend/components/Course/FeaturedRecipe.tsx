@@ -11,7 +11,7 @@ const CourseLink = styled(StyledLink)`
   @media (min-width: 900px) {
     width: 46vw;
   }
-  margin-bottom: 5vh;
+  margin-bottom: 2rem;
 `;
 
 const Section = styled.section`
