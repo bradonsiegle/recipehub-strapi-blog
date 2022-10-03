@@ -30,6 +30,11 @@ const CourseLink = styled(StyledLink)`
   }
 `;
 
+const StyledHeader = styled.h3`
+  text-align: center;
+  font-family: "Playfair Display", serif;
+`;
+
 interface Props {
   children: React.ReactNode;
   /**Header string */
@@ -44,7 +49,7 @@ export const Course: FC<Props> = ({ children, header, link, imageProps }) => (
   <Link href={link} passHref>
     <CourseLink>
       <Section>
-        <h2>{header}</h2>
+        <StyledHeader>{header}</StyledHeader>
         <Image {...imageProps} alt={header} />
         {children}
       </Section>
