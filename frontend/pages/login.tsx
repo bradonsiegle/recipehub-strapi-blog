@@ -17,6 +17,17 @@ const StyledInput = styled(Input)`
   margin-bottom: 1rem;
 `;
 
+const StyledHeader = styled.h3`
+  text-align: center;
+  margin-bottom: 2rem;
+  color: red;
+`;
+
+const StyledRegisterLink = styled.h3`
+  text-align: center;
+  margin: 2rem 0;
+`;
+
 export type LoginForm = {
   identifier: string;
   password: string;
@@ -46,9 +57,7 @@ const Login: NextPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <CenteredTile header="Login">
-        <h3>
-          <ConditionalFeedback>{error?.message}</ConditionalFeedback>
-        </h3>
+        {error?.message && <StyledHeader>{error.message}</StyledHeader>}
         <StyledInput
           label="Identifier"
           placeholder="Username or Email"
@@ -86,11 +95,11 @@ const Login: NextPage = () => {
           height={8}
         ></StyledInput>
         <Button type="submit">Sign In</Button>
-        <h3>
+        <StyledRegisterLink>
           <Link href="/registration" passHref>
             <StyledLink underline>Create Account</StyledLink>
           </Link>
-        </h3>
+        </StyledRegisterLink>
       </CenteredTile>
     </form>
   );
