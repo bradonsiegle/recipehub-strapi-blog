@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import MarkdownIt from "markdown-it";
-import { Button } from "@/components/Button";
 import { LikeButton } from "@/components/IconButton/LikeButton";
 
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "@/store";
-import { actions } from "@/services/userSlice";
+import { actions, logout } from "@/services/userSlice";
+import { useRouter } from "next/router";
 
 import { Course as CourseType, Response } from "@/types";
 import { CenteredTile } from "@/components/Tile";
@@ -106,10 +106,16 @@ const CoursePage: NextPage<{
   meta: CourseResponse["meta"];
 }> = ({ course }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
 
-  const { likes } = useSelector<RootState, RootState["user"]>(
-    (state) => state.user
-  );
+  const { courses, username, email } = useSelector<
+    RootState,
+    RootState["user"]
+  >((state) => state.user);
+
+  const checkForCourse = (id: number) => {
+    return courses.find((course) => course.id === id);
+  };
 
   if (course && course?.attributes) {
     const {
@@ -154,12 +160,22 @@ const CoursePage: NextPage<{
             <LikeButton
               name="BiBookmarkHeart"
               size={1}
-              isLiked={likes.includes(id)}
+              isLiked={checkForCourse(id) ? true : false}
               onClick={() => {
-                if (likes.includes(id)) {
-                  dispatch(actions.unlike(id));
+                //check if user is logged in
+                if (!username || !email) {
+                  dispatch(logout());
+                  router.push("/login");
                 } else {
-                  dispatch(actions.like(id));
+                  const likePayload = {
+                    id,
+                    course,
+                  };
+                  if (checkForCourse(id)) {
+                    dispatch(actions.unlike(likePayload.id));
+                  } else {
+                    dispatch(actions.like(likePayload));
+                  }
                 }
               }}
             />
