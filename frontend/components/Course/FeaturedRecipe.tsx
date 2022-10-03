@@ -27,10 +27,13 @@ const Section = styled.section`
 `;
 
 const StyledHeader = styled.h2`
+  font-family: "Playfair Display", serif;
   text-align: center;
   font-weight: 700;
   font-size: 1.6rem;
-  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: -0.2rem;
+  padding: 0 0.6rem;
 `;
 
 const StyledContent = styled.div`
