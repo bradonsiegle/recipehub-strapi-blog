@@ -33,14 +33,14 @@ import { StyledLink } from "@/components/StyledLink";
 import { LikeButton } from "@/components/IconButton/LikeButton";
 import { ShareButton } from "@/components/IconButton/ShareButton";
 
-const ImageContainer = styled.div<{ maxWidth: string }>`
+const ImageContainer = styled.div`
   display: flex;
   margin-bottom: 2rem;
   width: 100%;
-  max-width: ${({ maxWidth }) => maxWidth};
-  height: 50vw;
+  height: 90vw;
   @media (min-width: 768px) {
-    height: 20vw;
+    width: 500px;
+    height: 360px;
   }
 `;
 
@@ -50,7 +50,9 @@ const CustomLink = styled(StyledLink)`
 
 const StyledParagraph = styled.p`
   font-size: 1.1rem;
-  margin-bottom: -1rem;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+  max-width: 420px;
 `;
 
 const StyledContent = styled.div`
@@ -59,8 +61,8 @@ const StyledContent = styled.div`
   font-size: 1.1rem;
   line-height: 1.6;
 
-  h4 {
-    text-align: center;
+  @media (min-width: 768px) {
+    max-width: 420px;
   }
 `;
 
@@ -194,7 +196,7 @@ const CoursePage: NextPage<{
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <CenteredTile header={header}>
-          <ImageContainer maxWidth={`${width}px`}>
+          <ImageContainer>
             <Image
               alt={`Cover for ${header}`}
               src={`${strapi_url}${url}`}
@@ -276,6 +278,7 @@ const CoursePage: NextPage<{
             </ShareDiv>
           )}
           <StyledParagraph>{subtitle}</StyledParagraph>
+
           <StyledContent dangerouslySetInnerHTML={{ __html: description }} />
           <h4>Posted: {new Date(publishedAt).toDateString()}</h4>
           <Link href={link} passHref>

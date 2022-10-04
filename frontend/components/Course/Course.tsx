@@ -13,7 +13,6 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 2vmin;
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.font.regular};
   ${borderRadius};
@@ -25,21 +24,36 @@ const CourseLink = styled(StyledLink)`
   display: flex;
   justify-content: center;
   width: 90vw;
-  @media (min-width: 900px) {
-    width: 46vw;
+  @media (min-width: 768px) {
+    width: 390px;
   }
 `;
 
 const StyledHeader = styled.h3`
   text-align: center;
   font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-top: -1rem;
+  margin-bottom: 0;
 `;
 
 const StyledDate = styled.p`
   text-align: center;
   font-size: 0.8rem;
   font-weight: 400;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  margin-bottom: 2rem;
+  width: 90vw;
+  height: 70vw;
+
+  @media (min-width: 768px) {
+    width: 390px;
+    height: 260px;
+  }
 `;
 
 interface Props {
@@ -56,8 +70,10 @@ export const Course: FC<Props> = ({ children, header, link, imageProps }) => (
   <Link href={link} passHref>
     <CourseLink>
       <Section>
+        <ImageContainer>
+          <Image {...imageProps} alt={header} objectFit={"cover"} />
+        </ImageContainer>
         <StyledHeader>{header}</StyledHeader>
-        <Image {...imageProps} alt={header} />
         {children}
       </Section>
     </CourseLink>
@@ -73,11 +89,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 6vmin;
   margin: 2vh 2vw;
-`;
-
-const StyledContent = styled.div`
-  padding: 0 4vmin;
-  margin: 1rem 0;
 `;
 
 export const Courses: FC<{ courses: CourseType[]; strapi_url: string }> = ({
@@ -115,7 +126,6 @@ export const Courses: FC<{ courses: CourseType[]; strapi_url: string }> = ({
             style: { borderRadius: "1rem" },
           }}
         >
-          <StyledContent>{subtitle}</StyledContent>
           <time dateTime={publishedAt}>
             <StyledDate>{new Date(publishedAt).toDateString()}</StyledDate>
           </time>

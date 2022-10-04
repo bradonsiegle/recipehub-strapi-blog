@@ -14,7 +14,7 @@ const StyledHeader = styled.h2`
   font-weight: 700;
   font-size: 1.6rem;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   padding: 0 0.6rem;
 `;
 
@@ -93,7 +93,7 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
     </StyledDiv>
     <hr style={{ marginBottom: "2rem" }} className="responsive" />
 
-    <StyledHeader>Our newest recipes</StyledHeader>
+    <StyledHeader>Our lastest recipes</StyledHeader>
     <Courses courses={courses} strapi_url={String(strapi_url)} />
   </>
 );
