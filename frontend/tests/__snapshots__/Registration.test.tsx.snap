@@ -38,9 +38,11 @@ exports[`Registration page Render check 1`] = `
       class="css-1u4xp86"
     >
       <section
-        class="css-1qo2mpr"
+        class="css-f932e9"
       >
-        <h2>
+        <h2
+          class="css-1wylx4d"
+        >
           Create an account
         </h2>
         <h3>

@@ -17,6 +17,8 @@ const preloadedState = {
 		jwt: mockUser.jwt,
 		email: mockUser.user.email,
 		username: mockUser.user.username,
+		courses: mockUser.user.courses,
+		userId: mockUser.user.id,
 	},
 };
 
@@ -32,7 +34,7 @@ describe('User page', () => {
 			preloadedState,
 		});
 
-		await screen.findByText('Profile');
+		await screen.findByText('Your Profile');
 
 		expect(
 			screen.getByText(`Username: ${mockUser.user.username}`)
@@ -57,6 +59,8 @@ describe('User page', () => {
 					jwt: '',
 					email: '',
 					username: '',
+					courses: [],
+					userId: null,
 				},
 			},
 		});

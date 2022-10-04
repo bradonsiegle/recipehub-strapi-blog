@@ -3,9 +3,11 @@
 exports[`Tile test cases Tile render check 1`] = `
 <DocumentFragment>
   <section
-    class="css-a15hwe"
+    class="css-kii5co"
   >
-    <h2>
+    <h2
+      class="css-1wylx4d"
+    >
       Lorem ipsum dolor sit amet
     </h2>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris

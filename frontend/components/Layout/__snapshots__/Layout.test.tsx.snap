@@ -3,7 +3,7 @@
 exports[`Layout test cases Render check 1`] = `
 <DocumentFragment>
   <div
-    class="css-1stdm9q"
+    class="css-1btx2hs"
   >
     <a
       class="css-1m1nve0"
@@ -133,7 +133,7 @@ exports[`Layout test cases Render check 1`] = `
       />
     </label>
     <main
-      class="css-tee3o6"
+      class="css-15vxf7h"
     >
       <h1>
         Main article area

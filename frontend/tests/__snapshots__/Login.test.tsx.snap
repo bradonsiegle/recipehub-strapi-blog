@@ -3,7 +3,7 @@
 exports[`Login page should render 1`] = `
 <div>
   <div
-    class="css-1stdm9q"
+    class="css-1btx2hs"
   >
     <a
       class="css-1m1nve0"
@@ -133,21 +133,20 @@ exports[`Login page should render 1`] = `
       />
     </label>
     <main
-      class="css-tee3o6"
+      class="css-15vxf7h"
     >
       <form>
         <div
           class="css-1u4xp86"
         >
           <section
-            class="css-1qo2mpr"
+            class="css-f932e9"
           >
-            <h2>
+            <h2
+              class="css-1wylx4d"
+            >
               Login
             </h2>
-            <h3>
-               
-            </h3>
             <label
               class="css-1dqok13"
               height="8"
@@ -209,7 +208,9 @@ exports[`Login page should render 1`] = `
             >
               Sign In
             </button>
-            <h3>
+            <h3
+              class="css-3vq645"
+            >
               <a
                 class="css-137tmhu"
                 href="/registration"
