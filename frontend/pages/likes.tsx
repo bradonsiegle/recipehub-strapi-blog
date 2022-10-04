@@ -1,15 +1,26 @@
 import type { NextPage, GetStaticProps } from "next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store";
-import { CenteredTile } from "@/components/Tile";
-import { selectUser, logout } from "@/services/userSlice";
+import { selectUser } from "@/services/userSlice";
+
+import { BiHeartCircle } from "react-icons/bi";
+import styled from "@emotion/styled";
 
 import { Course as CourseType, Response } from "@/types";
 import { Courses } from "@/components/Course";
 
 type CoursesResponse = Response<CourseType[]>;
+
+const StyledHeader = styled.h2`
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  margin-bottom: 10vmin;
+`;
+
+const StyledParagraph = styled.p`
+  text-align: center;
+  margin-bottom: 10vmin;
+`;
 
 const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
 
@@ -45,40 +56,48 @@ export const getStaticProps: GetStaticProps = async () => {
 const Likes: NextPage<{ courses: CourseType[]; error?: string }> = ({
   courses,
 }) => {
-  const router = useRouter();
-
   const dispatch = useDispatch<AppDispatch>();
 
-  const { username, email, error, likes } = useSelector<
-    RootState,
-    RootState["user"]
-  >(selectUser);
+  const {
+    username,
+    email,
+    courses: likedCourses,
+  } = useSelector<RootState, RootState["user"]>(selectUser);
 
-  console.log("before", courses);
+  //map over likedCourses and return all id in new array
+  const likedCoursesIds = likedCourses.map((course) => course.id);
 
-  const likedCourses = courses.filter((course) => likes.includes(course.id));
-
-  useEffect(() => {
-    if (!username || Boolean(error)) {
-      dispatch(logout());
-      router.push("/login");
-    }
-  }, []);
-
-  const logoutHandler = () => {
-    dispatch(logout());
-    router.push("/");
-  };
+  //filter courses array and return only courses that match the id of likedCourses
+  const likedCoursesArray = courses.filter((course) =>
+    likedCoursesIds.includes(course.id)
+  );
 
   return username && email ? (
     <>
       {likedCourses.length >= 1 ? (
-        <Courses courses={likedCourses} strapi_url={String(strapi_url)} />
+        <>
+          <StyledHeader>Your liked recipes</StyledHeader>
+          <Courses
+            courses={likedCoursesArray}
+            strapi_url={String(strapi_url)}
+          />
+        </>
       ) : (
-        <h3>No liked recipes</h3>
+        <>
+          <StyledHeader>You have no liked recipes</StyledHeader>
+          <StyledParagraph>
+            You can like recipes by clicking on the heart icon on any recipe
+            page{" "}
+            <BiHeartCircle size={22} style={{ position: "relative", top: 4 }} />
+          </StyledParagraph>
+        </>
       )}
     </>
-  ) : null;
+  ) : (
+    <>
+      <StyledHeader>Please login to see your liked recipes</StyledHeader>
+    </>
+  );
 };
 
 export default Likes;
