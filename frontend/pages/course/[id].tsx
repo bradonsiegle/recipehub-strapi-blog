@@ -7,6 +7,7 @@ import MarkdownIt from "markdown-it";
 import { LikeButton } from "@/components/IconButton/LikeButton";
 
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import { RootState, AppDispatch } from "@/store";
 import { actions, logout } from "@/services/userSlice";
 import { useRouter } from "next/router";
@@ -14,6 +15,7 @@ import { useRouter } from "next/router";
 import { Course as CourseType, Response } from "@/types";
 import { CenteredTile } from "@/components/Tile";
 import { StyledLink } from "@/components/StyledLink";
+import { ShareButton } from "@/components/IconButton/ShareButton";
 
 const ImageContainer = styled.div<{ maxWidth: string }>`
   display: flex;
@@ -28,6 +30,29 @@ const ImageContainer = styled.div<{ maxWidth: string }>`
 
 const CustomLink = styled(StyledLink)`
   text-decoration: underline;
+`;
+
+const StyledParagraph = styled.p`
+  font-size: 1.1rem;
+  margin-bottom: -1rem;
+`;
+
+const StyledContent = styled.div`
+  max-width: width;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+
+  h4 {
+    text-align: center;
+  }
+`;
+
+const IconsDiv = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: -1.2rem;
 `;
 
 type CourseResponse = Response<CourseType>;
@@ -57,10 +82,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths,
     fallback: true,
   };
-};
-
-const likeAction = (id: number) => {
-  console.log(`Like action for course`);
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -108,6 +129,8 @@ const CoursePage: NextPage<{
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
 
+  const [isClicked, setIsClicked] = useState(false);
+
   const { courses, username, email } = useSelector<
     RootState,
     RootState["user"]
@@ -122,6 +145,7 @@ const CoursePage: NextPage<{
       id,
       attributes: {
         header,
+        subtitle,
         link,
         description,
         publishedAt,
@@ -140,7 +164,7 @@ const CoursePage: NextPage<{
     return (
       <>
         <Head>
-          <title>Course: {header}</title>
+          <title>{header}</title>
           <meta name="description" content={header} />
           <link rel="icon" href="/favicon.ico" />
         </Head>
@@ -151,12 +175,12 @@ const CoursePage: NextPage<{
               src={`${strapi_url}${url}`}
               width={width}
               height={height}
-              // layout="fill"
               objectFit="cover"
+              style={{ borderRadius: "1rem" }}
             />
           </ImageContainer>
 
-          <div>
+          <IconsDiv>
             <LikeButton
               name="BiBookmarkHeart"
               size={1}
@@ -179,13 +203,19 @@ const CoursePage: NextPage<{
                 }
               }}
             />
-          </div>
+            <ShareButton
+              name="Home"
+              size={1}
+              isClicked={isClicked}
+              onClick={() => {
+                setIsClicked(!isClicked);
+              }}
+            />
+          </IconsDiv>
 
-          <div
-            style={{ maxWidth: width, marginTop: "1rem" }}
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
-          <h4>{new Date(publishedAt).toDateString()}</h4>
+          <StyledParagraph>{subtitle}</StyledParagraph>
+          <StyledContent dangerouslySetInnerHTML={{ __html: description }} />
+          <h4>Posted: {new Date(publishedAt).toDateString()}</h4>
           <Link href={link} passHref>
             <CustomLink>Original Recipe</CustomLink>
           </Link>
