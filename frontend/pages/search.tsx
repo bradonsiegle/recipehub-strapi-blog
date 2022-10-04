@@ -9,6 +9,16 @@ import { Courses } from "@/components/Course";
 
 type CoursesResponse = Response<CourseType[]>;
 
+const StyledHeader = styled.h3`
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 0.6rem;
+`;
+
 const fetchCourses = async (q: string) => {
   const api_url = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
@@ -87,9 +97,14 @@ const headerRender = (q: string, courses?: CourseType[], error?: string) => {
   if (error) {
     return error;
   }
-  return courses && courses?.length
-    ? `Search results for "${q}"`
-    : `No results for "${q}"`;
+  return courses && courses?.length ? (
+    <>
+      <StyledHeader>Search results for "{q}"</StyledHeader>
+      <hr style={{ marginBottom: "2rem" }} />
+    </>
+  ) : (
+    `No results for "${q}"`
+  );
 };
 
 const strapi_url = process.env.NEXT_PUBLIC_STRAPI_URL;
