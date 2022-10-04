@@ -91,7 +91,7 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
         <Subtitle>{featuredCourse.attributes.subtitle}</Subtitle>
       </FeaturedRecipe>
     </StyledDiv>
-    <hr style={{ marginBottom: "2rem" }} />
+    <hr style={{ marginBottom: "2rem" }} className="responsive" />
 
     <StyledHeader>Our newest recipes</StyledHeader>
     <Courses courses={courses} strapi_url={String(strapi_url)} />

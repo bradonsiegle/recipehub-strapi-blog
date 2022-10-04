@@ -100,7 +100,7 @@ const headerRender = (q: string, courses?: CourseType[], error?: string) => {
   return courses && courses?.length ? (
     <>
       <StyledHeader>Search results for &ldquo;{q}&rdquo; </StyledHeader>
-      <hr style={{ marginBottom: "2rem" }} />
+      <hr style={{ marginBottom: "2rem" }} className="responsive" />
     </>
   ) : (
     `No results for "${q}"`

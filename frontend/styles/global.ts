@@ -9,4 +9,9 @@ export const GlobalStyles = css`
 		background-color: var(--themeBackgroundColor);
 		color: var(--themeColor);
 	}
+	.responsive {
+		@media (min-width: 900px) {
+			display: none;
+		}
+	}
 `;

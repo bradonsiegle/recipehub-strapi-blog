@@ -46,7 +46,7 @@ const User: NextPage = () => {
           style={{ position: "relative", top: "3px" }}
         />
       </StyledHeader>
-      <hr style={{ marginBottom: "2rem" }} />
+      <hr style={{ marginBottom: "2rem" }} className="responsive" />
 
       <CenteredTile header="Your Profile">
         <h3>Username: {username}</h3>

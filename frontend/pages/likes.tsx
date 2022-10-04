@@ -79,7 +79,7 @@ const Likes: NextPage<{ courses: CourseType[]; error?: string }> = ({
       {likedCourses.length >= 1 ? (
         <>
           <StyledHeader>Liked recipes {""}</StyledHeader>
-          <hr style={{ marginBottom: "2rem" }} />
+          <hr style={{ marginBottom: "2rem" }} className="responsive" />
 
           <Courses
             courses={likedCoursesArray}
