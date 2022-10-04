@@ -75,6 +75,7 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
       <meta name="description" content="IT courses for everyone" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
+
     <StyledDiv>
       <FeaturedRecipe
         header={featuredCourse.attributes.header}
@@ -90,6 +91,8 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
         <Subtitle>{featuredCourse.attributes.subtitle}</Subtitle>
       </FeaturedRecipe>
     </StyledDiv>
+    <hr style={{ marginBottom: "2rem" }} />
+
     <StyledHeader>Our newest recipes</StyledHeader>
     <Courses courses={courses} strapi_url={String(strapi_url)} />
   </>
