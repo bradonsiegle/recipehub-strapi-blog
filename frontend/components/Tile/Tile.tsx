@@ -23,6 +23,9 @@ const Section = styled.section`
   ${borderRadius};
   width: 100%;
   max-width: 90vw;
+  @media (min-width: 768px) {
+    max-width: 20vw;
+  }
   padding: 2vmin 4vmin 4vmin;
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.font.regular};
