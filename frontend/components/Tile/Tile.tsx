@@ -9,6 +9,16 @@ export type TileProps = {
   header: ReactChild;
 };
 
+const StyledHeader = styled.h2`
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 0 0.6rem;
+`;
+
 const Section = styled.section`
   ${borderRadius};
   width: 100%;
@@ -23,7 +33,7 @@ const Section = styled.section`
 export const Tile: FC<TileProps> = ({ header, children, ...rest }) => {
   return (
     <Section {...rest}>
-      <h2>{header}</h2>
+      <StyledHeader>{header}</StyledHeader>
       {children}
     </Section>
   );
