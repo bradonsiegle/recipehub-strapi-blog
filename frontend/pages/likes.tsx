@@ -67,6 +67,8 @@ const Likes: NextPage<{ courses: CourseType[]; error?: string }> = ({
   //map over likedCourses and return all id in new array
   const likedCoursesIds = likedCourses.map((course) => course.id);
 
+  const likedCoursesCount = likedCoursesIds.length;
+
   //filter courses array and return only courses that match the id of likedCourses
   const likedCoursesArray = courses.filter((course) =>
     likedCoursesIds.includes(course.id)
@@ -76,7 +78,9 @@ const Likes: NextPage<{ courses: CourseType[]; error?: string }> = ({
     <>
       {likedCourses.length >= 1 ? (
         <>
-          <StyledHeader>Your liked recipes</StyledHeader>
+          <StyledHeader>Liked recipes {""}</StyledHeader>
+          <hr style={{ marginBottom: "2rem" }} />
+
           <Courses
             courses={likedCoursesArray}
             strapi_url={String(strapi_url)}
