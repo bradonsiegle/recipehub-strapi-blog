@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
     grid-template-columns: 1fr 3fr;
   }
   @media (min-width: 960px) {
-    grid-template-columns: 1fr 4fr 2fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
       "header  search  nav"
       "content content content"
@@ -62,7 +62,7 @@ export const SearchInput = styled(Input)`
 export const Content = styled.main`
   grid-area: content;
   min-height: 84vh;
-  margin-top: 1rem;
+  margin-top: 1.6rem;
 `;
 
 export const Footer = styled.footer`
