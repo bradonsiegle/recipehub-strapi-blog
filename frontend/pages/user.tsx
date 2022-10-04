@@ -23,6 +23,9 @@ const User: NextPage = () => {
     font-family: "Playfair Display", serif;
     text-align: center;
     margin-bottom: 10vmin;
+    @media (min-width: 768px) {
+      margin-top: 4rem;
+    }
   `;
 
   useEffect(() => {
