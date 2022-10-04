@@ -3,10 +3,7 @@ import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { FC, useState, useEffect, useLayoutEffect, ChangeEvent } from "react";
-import { IconButton, LikeButton } from "@/components/IconButton";
-import { Button } from "@/components/Button";
-import { StyledLink } from "../StyledLink";
-import Image from "next/image";
+import { IconButton } from "@/components/IconButton";
 import { ThemeProvider } from "@emotion/react";
 import { Themes } from "@/styles/themes";
 import { login, selectUser } from "@/services/userSlice";
@@ -40,7 +37,7 @@ export const Layout: FC<Props> = ({ children }) => {
   const lightIcon =
     "https://res.cloudinary.com/dxpt2kzgn/image/upload/v1664330095/images/logo_black_tqzpce.png";
 
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [isDarkIcon, setIsDarkIcon] = useState(lightIcon);
   const dispatch = useDispatch<AppDispatch>();
 
