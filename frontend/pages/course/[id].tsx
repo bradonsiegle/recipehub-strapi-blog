@@ -4,7 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import MarkdownIt from "markdown-it";
-import { LikeButton } from "@/components/IconButton/LikeButton";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+  PinterestShareButton,
+  WhatsappShareButton,
+  RedditShareButton,
+} from "react-share";
+import {
+  FacebookIcon,
+  TwitterIcon,
+  EmailIcon,
+  PinterestIcon,
+  WhatsappIcon,
+  RedditIcon,
+} from "react-share";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
@@ -15,6 +30,7 @@ import { useRouter } from "next/router";
 import { Course as CourseType, Response } from "@/types";
 import { CenteredTile } from "@/components/Tile";
 import { StyledLink } from "@/components/StyledLink";
+import { LikeButton } from "@/components/IconButton/LikeButton";
 import { ShareButton } from "@/components/IconButton/ShareButton";
 
 const ImageContainer = styled.div<{ maxWidth: string }>`
@@ -53,6 +69,13 @@ const IconsDiv = styled.div`
   justify-content: flex-start;
   gap: 1rem;
   margin-top: -1.2rem;
+`;
+
+const ShareDiv = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
 `;
 
 type CourseResponse = Response<CourseType>;
@@ -140,6 +163,8 @@ const CoursePage: NextPage<{
     return courses.find((course) => course.id === id);
   };
 
+  const thisCourseUrl = `https://therecipehub.vercel.app/course/${course.id}`;
+
   if (course && course?.attributes) {
     const {
       id,
@@ -213,6 +238,43 @@ const CoursePage: NextPage<{
             />
           </IconsDiv>
 
+          {isClicked && (
+            <ShareDiv>
+              <FacebookShareButton
+                quote="Look at this recipe!"
+                url={thisCourseUrl}
+              >
+                <FacebookIcon size={32} round />
+              </FacebookShareButton>
+
+              <TwitterShareButton
+                title="Look at this recipe!"
+                url={thisCourseUrl}
+              >
+                <TwitterIcon size={32} round />
+              </TwitterShareButton>
+              <PinterestShareButton
+                description="Look at this recipe!"
+                url={thisCourseUrl}
+                media={`${url}`}
+              >
+                <PinterestIcon size={32} round />
+              </PinterestShareButton>
+              <WhatsappShareButton title={header} url={thisCourseUrl}>
+                <WhatsappIcon size={32} round />
+              </WhatsappShareButton>
+              <RedditShareButton title={header} url={thisCourseUrl}>
+                <RedditIcon size={32} round />
+              </RedditShareButton>
+              <EmailShareButton
+                subject={header}
+                body={`Check out this ${header} recipe!`}
+                url={thisCourseUrl}
+              >
+                <EmailIcon size={32} round />
+              </EmailShareButton>
+            </ShareDiv>
+          )}
           <StyledParagraph>{subtitle}</StyledParagraph>
           <StyledContent dangerouslySetInnerHTML={{ __html: description }} />
           <h4>Posted: {new Date(publishedAt).toDateString()}</h4>
