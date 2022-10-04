@@ -32,7 +32,6 @@
     "react-hook-form": "^7.35.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
-    "react-responsive": "^9.0.0",
     "react-share": "^4.4.0",
     "whatwg-fetch": "^3.6.2"
   },
