@@ -1,3 +1,4 @@
+import { Course as CourseType } from '@/types';
 import { RootState } from '@/store';
 import {
 	createAsyncThunk,
@@ -8,9 +9,10 @@ import {
 
 export type UserState = {
 	jwt: string;
+	userId: number | null;
 	username: string;
 	email: string;
-	likes: number[];
+	courses: CourseType[];
 	requestState?: RequestState;
 	error?: SerializedError;
 };
@@ -33,27 +35,61 @@ type UserPayload = {
 	user: {
 		username: string;
 		email: string;
+		courses: CourseType[];
+		id: number;
 	};
+};
+
+type likePayload = {
+	id: number;
+	course: CourseType;
 };
 
 export const initialState: UserState = {
 	jwt: '',
+	userId: null,
 	username: '',
 	email: '',
-	likes: [],
+	courses: [],
 };
 
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		like: (state, action: PayloadAction<number>) => {
-			state.likes.push(action.payload);
-			localStorage.setItem('likes', JSON.stringify(state.likes));
+		like: (state, action: PayloadAction<likePayload>) => {
+			console.log('like action');
+
+			state.courses.push(action.payload.course);
+			localStorage.setItem('courses', JSON.stringify(state.courses));
+
+			fetch(`${api_url}/users/${state.userId}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${state.jwt}`,
+				},
+				body: JSON.stringify({
+					courses: state.courses,
+				}),
+			});
 		},
 		unlike: (state, action: PayloadAction<number>) => {
-			state.likes = state.likes.filter((id) => id !== action.payload);
-			localStorage.setItem('likes', JSON.stringify(state.likes));
+			//remove course from user's courses
+			state.courses = state.courses.filter(
+				(course) => course.id !== action.payload
+			);
+			localStorage.setItem('courses', JSON.stringify(state.courses));
+			fetch(`${api_url}/users/${state.userId}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${state.jwt}`,
+				},
+				body: JSON.stringify({
+					courses: state.courses,
+				}),
+			});
 		},
 	},
 	extraReducers: (builder) => {
@@ -67,8 +103,10 @@ export const userSlice = createSlice({
 					state.requestState = 'fulfilled';
 					state.jwt = payload.jwt;
 					state.username = payload.user.username;
+					state.userId = Number(payload.user.id);
 					state.email = payload.user.email;
 					state.error = undefined;
+					state.courses = payload.user.courses;
 				}
 			)
 			.addMatcher(
@@ -98,12 +136,16 @@ const clearUserInfoFromLocalStorage = () => {
 	localStorage.removeItem('jwt');
 	localStorage.removeItem('username');
 	localStorage.removeItem('email');
+	localStorage.removeItem('userId');
+	localStorage.removeItem('courses');
 };
 
 const setupUserInfoToLocalStorage = (result: UserPayload) => {
 	localStorage.setItem('jwt', result.jwt);
 	localStorage.setItem('username', result?.user?.username);
 	localStorage.setItem('email', result?.user?.email);
+	localStorage.setItem('userId', String(result?.user?.id));
+	localStorage.setItem('courses', JSON.stringify(result?.user?.courses));
 };
 
 const createRequest = (
@@ -111,7 +153,7 @@ const createRequest = (
 	loginData: LoginData | undefined
 ) => {
 	if (jwt && !loginData) {
-		return fetch(`${api_url}/users/me`, {
+		return fetch(`${api_url}/users/me?populate=*`, {
 			headers: {
 				Authorization: `Bearer ${jwt}`,
 			},
@@ -146,6 +188,17 @@ export const login = createAsyncThunk<UserPayload, LoginData | undefined>(
 
 			const result = (jwt ? { jwt, user: data } : data) as UserPayload;
 
+			if (!result.user.courses) {
+				const userData = await fetch(
+					`${api_url}/users/${result.user.id}?populate=*`,
+					{
+						headers: {
+							Authorization: `Bearer ${result.jwt}`,
+						},
+					}
+				).then((res) => res.json());
+				result.user.courses = userData.courses;
+			}
 			setupUserInfoToLocalStorage(result);
 
 			return result;
