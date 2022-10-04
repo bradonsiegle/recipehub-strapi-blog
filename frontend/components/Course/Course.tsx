@@ -35,6 +35,13 @@ const StyledHeader = styled.h3`
   font-family: "Playfair Display", serif;
 `;
 
+const StyledDate = styled.p`
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+`;
+
 interface Props {
   children: React.ReactNode;
   /**Header string */
@@ -64,8 +71,13 @@ export const Wrapper = styled.div`
     flex-wrap: nowrap;
   }
   justify-content: center;
-  gap: 3vmin;
+  gap: 6vmin;
   margin: 2vh 2vw;
+`;
+
+const StyledContent = styled.div`
+  padding: 0 4vmin;
+  margin: 1rem 0;
 `;
 
 export const Courses: FC<{ courses: CourseType[]; strapi_url: string }> = ({
@@ -100,11 +112,12 @@ export const Courses: FC<{ courses: CourseType[]; strapi_url: string }> = ({
             height,
             alt: `Cover for ${header}`,
             src: `${strapi_url}${url}`,
+            style: { borderRadius: "1rem" },
           }}
         >
-          <h3>{subtitle}</h3>
+          <StyledContent>{subtitle}</StyledContent>
           <time dateTime={publishedAt}>
-            {new Date(publishedAt).toDateString()}
+            <StyledDate>{new Date(publishedAt).toDateString()}</StyledDate>
           </time>
         </Course>
       )
