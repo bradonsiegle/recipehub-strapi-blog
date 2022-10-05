@@ -6,6 +6,9 @@ export type LogoProps = { /** Logo size in rem */ size?: number };
 export const Logo = styled.header<LogoProps>`
   font-family: "Playfair Display", serif;
   font-size: ${({ size = 3 }) => `${size}rem`};
+  @media (min-width: 768px) {
+    font-size: ${({ size = 3 }) => `${size + 0.4}rem`};
+  }
   ${({ theme, size = 3 }) => {
     return css`
       color: ${theme.font.logo};
