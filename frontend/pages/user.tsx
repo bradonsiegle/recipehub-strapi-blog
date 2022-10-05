@@ -51,7 +51,7 @@ const User: NextPage = () => {
       </StyledHeader>
       <hr style={{ marginBottom: "2rem" }} className="responsive" />
 
-      <CenteredTile header="Your Profile">
+      <CenteredTile header="Your Profile" maxWidth={"20vw"}>
         <h3>Username: {username}</h3>
         <h3>Email: {email}</h3>
         <Button onClick={logoutHandler} style={{ margin: "2rem 0" }}>

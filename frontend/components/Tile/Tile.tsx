@@ -7,6 +7,7 @@ export type TileProps = {
   children?: React.ReactNode;
   /**Header String */
   header: ReactChild;
+  maxWidth?: string;
 };
 
 const StyledHeader = styled.h2`
@@ -19,12 +20,12 @@ const StyledHeader = styled.h2`
   padding: 0 0.6rem;
 `;
 
-const Section = styled.section`
+const Section = styled.section<{ maxWidth?: string }>`
   ${borderRadius};
   width: 100%;
   max-width: 90vw;
   @media (min-width: 768px) {
-    max-width: 50vw;
+    max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "50vw")};
   }
   padding: 2vmin 4vmin 4vmin;
   background: ${({ theme }) => theme.background};
@@ -33,9 +34,14 @@ const Section = styled.section`
     boxShadow(theme.components.shadow1, theme.components.shadow2)};
 `;
 
-export const Tile: FC<TileProps> = ({ header, children, ...rest }) => {
+export const Tile: FC<TileProps> = ({
+  maxWidth,
+  header,
+  children,
+  ...rest
+}) => {
   return (
-    <Section {...rest}>
+    <Section {...rest} maxWidth={maxWidth}>
       <StyledHeader>{header}</StyledHeader>
       {children}
     </Section>

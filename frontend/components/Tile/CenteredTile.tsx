@@ -23,10 +23,17 @@ const StyledTile = styled(Tile)`
   flex-flow: column;
 `;
 
-export const CenteredTile: FC<TileProps> = ({ children, header, ...rest }) => {
+export const CenteredTile: FC<TileProps> = ({
+  maxWidth,
+  children,
+  header,
+  ...rest
+}) => {
   return (
     <Wrapper {...rest}>
-      <StyledTile header={header}>{children}</StyledTile>
+      <StyledTile header={header} maxWidth={maxWidth}>
+        {children}
+      </StyledTile>
     </Wrapper>
   );
 };
