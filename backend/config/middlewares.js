@@ -7,8 +7,20 @@ module.exports = [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "img-src": ["'self'", "data:", "blob:", "*.cloudinary.com"],
-          "media-src": ["'self'", "data:", "blob:"],
+          "img-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "*.cloudinary.com",
+            "@.railway.app",
+          ],
+          "media-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "*.cloudinary.com",
+            "@.railway.app",
+          ],
           upgradeInsecureRequests: null,
         },
       },
