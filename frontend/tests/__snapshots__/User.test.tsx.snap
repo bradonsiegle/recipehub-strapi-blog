@@ -10,8 +10,8 @@ exports[`User page Load user 1`] = `
       href="/"
     >
       <header
-        class="css-w7ne20"
-        size="1.4"
+        class="css-hx188x"
+        size="1.2"
       >
         <h2>
           RecipeHub
@@ -158,7 +158,7 @@ exports[`User page Load user 1`] = `
         class="css-1u4xp86"
       >
         <section
-          class="css-f932e9"
+          class="css-p60l6a"
         >
           <h2
             class="css-1wylx4d"
@@ -204,8 +204,8 @@ exports[`User page Render check 1`] = `
       href="/"
     >
       <header
-        class="css-w7ne20"
-        size="1.4"
+        class="css-hx188x"
+        size="1.2"
       >
         <h2>
           RecipeHub
@@ -352,7 +352,7 @@ exports[`User page Render check 1`] = `
         class="css-1u4xp86"
       >
         <section
-          class="css-f932e9"
+          class="css-p60l6a"
         >
           <h2
             class="css-1wylx4d"
