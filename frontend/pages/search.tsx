@@ -103,7 +103,7 @@ const headerRender = (q: string, courses?: CourseType[], error?: string) => {
       <hr style={{ marginBottom: "2rem" }} className="responsive" />
     </>
   ) : (
-    `No results for "${q}"`
+    <StyledHeader>No results for &ldquo;{q}&rdquo;</StyledHeader>
   );
 };
 
