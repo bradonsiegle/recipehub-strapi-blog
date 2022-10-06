@@ -134,7 +134,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       course: {
-        ...data,
+        id: data.id,
         attributes: {
           ...data.attributes,
           description: md.render(data.attributes.description),
@@ -162,14 +162,14 @@ const CoursePage: NextPage<{
   >((state) => state.user);
 
   const checkForCourse = (id: number) => {
-    return courses.find((course) => course.id === id);
+    return courses.find((course?) => course?.id === id);
   };
 
-  const thisCourseUrl = `https://therecipehub.vercel.app/course/${course.id}`;
+  const thisCourseUrl = `https://therecipehub.vercel.app/course/${course?.id}`;
 
   if (course && course?.attributes && course?.id) {
+    const id = course?.id;
     const {
-      id,
       attributes: {
         header,
         subtitle,
