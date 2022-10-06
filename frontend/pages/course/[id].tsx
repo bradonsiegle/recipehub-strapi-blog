@@ -167,7 +167,7 @@ const CoursePage: NextPage<{
 
   const thisCourseUrl = `https://therecipehub.vercel.app/course/${course.id}`;
 
-  if (course && course?.attributes) {
+  if (course && course?.attributes && course?.id) {
     const {
       id,
       attributes: {
