@@ -50,7 +50,7 @@ const CustomLink = styled(StyledLink)`
 
 const StyledParagraph = styled.p`
   font-size: 1.1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 0.2rem;
   opacity: 0.8;
   max-width: 420px;
 `;
