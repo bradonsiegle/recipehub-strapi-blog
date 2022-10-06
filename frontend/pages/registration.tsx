@@ -18,7 +18,7 @@ import { Button } from "@/components/Button";
 import { StyledLink } from "@/components/StyledLink";
 
 const StyledInput = styled(Input)`
-  margin-bottom: 1rem;
+  margin-bottom: 0.2rem;
 `;
 
 const Registration: NextPage = () => {
@@ -43,10 +43,12 @@ const Registration: NextPage = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <CenteredTile header="Create an account">
-        <h3>
-          <ConditionalFeedback>{error?.message}</ConditionalFeedback>
-        </h3>
+      <CenteredTile header="Create an account" maxWidth="20vw">
+        {error?.message && (
+          <h3>
+            <ConditionalFeedback>{error?.message}</ConditionalFeedback>
+          </h3>
+        )}
         <StyledInput
           label="username"
           placeholder="username"
@@ -98,15 +100,12 @@ const Registration: NextPage = () => {
               value: 6,
               message: "Password must be at least 6 characters long",
             },
-            // pattern: {
-            //     value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
-            //     message:
-            //         'Password must contain at least one uppercase letter, one lowercase letter, and one number',
-            // },
           })}
         />
-        <Button type="submit">Sign Up</Button>
-        <h3>
+        <Button type="submit" style={{ marginTop: "1rem" }}>
+          Sign Up
+        </Button>
+        <h3 style={{ marginTop: "3rem" }}>
           Already have an account?{" "}
           <Link href="/login" passHref>
             <StyledLink underline>Login</StyledLink>

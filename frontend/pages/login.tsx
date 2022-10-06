@@ -56,7 +56,7 @@ const Login: NextPage = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <CenteredTile header="Login">
+      <CenteredTile header="Login" maxWidth="20vw">
         {error?.message && <StyledHeader>{error.message}</StyledHeader>}
         <StyledInput
           label="Identifier"
