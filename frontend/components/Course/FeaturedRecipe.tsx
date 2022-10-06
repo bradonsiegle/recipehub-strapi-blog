@@ -13,7 +13,7 @@ const CourseLink = styled(StyledLink)`
     width: 500px;
     margin-top: 1rem;
   }
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const Section = styled.section`
