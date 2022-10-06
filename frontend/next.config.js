@@ -8,6 +8,7 @@ const nextConfig = {
 			'localhost',
 			'coursesbox-production.up.railway.app',
 			'res.cloudinary.com',
+			'https://therecipehub.vercel.app/',
 		],
 	},
 };
