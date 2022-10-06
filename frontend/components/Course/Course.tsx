@@ -8,7 +8,7 @@ import { Course as CourseType } from "@/types";
 import { boxShadow, borderRadius } from "../styles";
 import { StyledLink } from "@/components/StyledLink";
 
-const Section = styled.section`
+export const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ const Section = styled.section`
     boxShadow(theme.components.shadow1, theme.components.shadow2)};
 `;
 
-const CourseLink = styled(StyledLink)`
+export const CourseLink = styled(StyledLink)`
   display: flex;
   justify-content: center;
   width: 90vw;
@@ -44,7 +44,7 @@ const StyledDate = styled.p`
   margin-bottom: 1rem;
 `;
 
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
   display: flex;
   margin-bottom: 2rem;
   width: 90vw;
@@ -83,9 +83,7 @@ export const Course: FC<Props> = ({ children, header, link, imageProps }) => (
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  @media (min-width: 900px) {
-    flex-wrap: nowrap;
-  }
+
   justify-content: center;
   gap: 6vmin;
   margin: 2vh 2vw;
