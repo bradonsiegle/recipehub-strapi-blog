@@ -38,18 +38,15 @@ exports[`Registration page Render check 1`] = `
       class="css-1u4xp86"
     >
       <section
-        class="css-f932e9"
+        class="css-p60l6a"
       >
         <h2
           class="css-1wylx4d"
         >
           Create an account
         </h2>
-        <h3>
-           
-        </h3>
         <label
-          class="css-1805hjr"
+          class="css-crjp00"
           height="7"
           width="20"
         >
@@ -75,7 +72,7 @@ exports[`Registration page Render check 1`] = `
           </span>
         </label>
         <label
-          class="css-1805hjr"
+          class="css-crjp00"
           height="7"
           width="20"
         >
@@ -102,7 +99,7 @@ exports[`Registration page Render check 1`] = `
           </span>
         </label>
         <label
-          class="css-1805hjr"
+          class="css-crjp00"
           height="7"
           width="20"
         >
@@ -132,11 +129,14 @@ exports[`Registration page Render check 1`] = `
         <button
           class="css-4dagrr"
           color="primary"
+          style="margin-top: 1rem;"
           type="submit"
         >
           Sign Up
         </button>
-        <h3>
+        <h3
+          style="margin-top: 3rem;"
+        >
           Already have an account?
            
           <a
