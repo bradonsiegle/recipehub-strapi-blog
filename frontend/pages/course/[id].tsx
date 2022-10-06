@@ -205,6 +205,13 @@ const CoursePage: NextPage<{
               objectFit="cover"
               style={{ borderRadius: "1rem" }}
             />
+            {/* <img
+							src={`${strapi_url}${url}`}
+							alt={`Cover for ${header}`}
+							width={width}
+							height={height}
+							style={{ borderRadius: '1rem', objectFit: 'cover' }}
+						/> */}
           </ImageContainer>
 
           <IconsDiv>
