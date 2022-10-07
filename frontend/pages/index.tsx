@@ -4,7 +4,8 @@ import { Course as CourseType, Response } from "@/types";
 import styled from "@emotion/styled";
 import { CourseCategoryTile, Courses } from "@/components/Course";
 import { FeaturedRecipe } from "@/components/Course";
-
+import { Button } from "@/components/Button";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 type CoursesResponse = Response<CourseType[]>;
@@ -82,6 +83,7 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
   featuredCourse,
 }) => {
   const router = useRouter();
+  const [showAllCourses, setShowAllCourses] = useState(false);
   return (
     <>
       <Head>
@@ -137,7 +139,27 @@ const Home: NextPage<{ courses: CourseType[]; featuredCourse: CourseType }> = ({
       />
 
       <StyledHeader>Our lastest recipes</StyledHeader>
-      <Courses courses={courses.reverse()} strapi_url={String(strapi_url)} />
+      <Courses
+        courses={courses.slice(0, 8).reverse()}
+        strapi_url={String(strapi_url)}
+      />
+
+      {showAllCourses && (
+        <Courses
+          courses={courses.slice(8).reverse()}
+          strapi_url={String(strapi_url)}
+        />
+      )}
+      <StyledDiv>
+        <Button
+          onClick={() => {
+            setShowAllCourses(!showAllCourses);
+          }}
+          style={{ marginTop: "2rem" }}
+        >
+          {showAllCourses ? "Show less" : "Show more"}
+        </Button>
+      </StyledDiv>
     </>
   );
 };
