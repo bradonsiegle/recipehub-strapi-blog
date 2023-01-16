@@ -13,6 +13,7 @@ module.exports = [
             "blob:",
             "dl.airtable.com",
             "res.cloudinary.com",
+            "cloudinary.com",
           ],
           "media-src": [
             "'self'",
@@ -20,6 +21,7 @@ module.exports = [
             "blob:",
             "dl.airtable.com",
             "res.cloudinary.com",
+            "cloudinary.com",
           ],
           upgradeInsecureRequests: null,
         },
